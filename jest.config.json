@@ -1,0 +1,17 @@
+{
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "verbose": true,
+    "transform": {
+        "^.+\\.ts$": "ts-jest"
+    },
+    "testRegex": ["\\.spec\\.ts$", "\\.test\\.ts$"],
+    "modulePaths": ["<rootDir>/src"],
+    "moduleFileExtensions": ["ts", "tsx", "js", "json"],
+    "globals": {
+        "ts-jest": {
+            "diagnostics": true
+        }
+    }
+}
