@@ -13,17 +13,19 @@ describe('user controller test', ()=>{
     let res: Partial<Response>;
     let next: NextFunction = jest.fn();
 
-    // test DB 연결
-    beforeAll(async()=>{
-        console.log(env)
-        if (env.NODE_ENV === 'test') {
-            await sequelize.authenticate();
-            associate();
-            await resetTable();
-        } else {
-            throw new Error('NODE_ENV !== test');
-        }
-    });
+    // // test DB 연결
+    // beforeAll(async()=>{
+    //     await sequelize.authenticate();
+    //     associate();
+    //     await resetTable();
+    //     // if (env.NODE_ENV === 'test') {
+    //     //     await sequelize.authenticate();
+    //     //     associate();
+    //     //     await resetTable();
+    //     // } else {
+    //     //     throw new Error('NODE_ENV !== test');
+    //     // }
+    // });
 
     beforeEach(()=>{
         req = {};
@@ -33,9 +35,9 @@ describe('user controller test', ()=>{
         }
     });
 
-    afterAll(async()=>{
-        await sequelize.close();
-    });
+    // afterAll(async()=>{
+    //     await sequelize.close();
+    // });
 
 
     // 회원가입 테스트
@@ -50,7 +52,6 @@ describe('user controller test', ()=>{
 
         await UserController.signup(req as Request, res as Response, next as NextFunction);
 
-        console.log(req, res)
         expect(res.status).toBeCalledWith(200);
     });
 
