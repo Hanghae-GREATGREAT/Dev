@@ -5,8 +5,7 @@ import UserRouter from './user/user.routes';
 
 const router = Router();
 
-
-router.get('/', (req, res, next) => {
+router.get('/', async(req, res, next) => {
     res.status(200).json({
         message: 'INDEX PAGE',
     });

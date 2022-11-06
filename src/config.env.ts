@@ -35,11 +35,18 @@ class dBConnection {
 class Env extends dBConnection {
 
     PORT: number;
+    REDIS_HOST: string;
+    REDIS_USER: string;
+    REDIS_PASSWORD: string;
 
     constructor() {
         super();
 
         this.PORT = Number(process.env.PORT);
+
+        this.REDIS_HOST = process.env.REDIS_HOST!;
+        this.REDIS_USER = process.env.REDIS_USER!;
+        this.REDIS_PASSWORD = process.env.REDIS_PASSWORD!;
     }
 }
 
