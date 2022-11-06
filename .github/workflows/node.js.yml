@@ -34,14 +34,10 @@ jobs:
       
     - name: run test
       env:
-          PORT: ${{ secrets.PORT }}
-          DEV_HOST: ${{ secrets.DEV_HOST }}
-          DEV_NAME: ${{ secrets.DEV_NAME }}
-          DEV_USER: ${{ secrets.DEV_USER }}
-          DEV_PASSWORD: ${{ secrets.DEV_PASSWORD }}
+          PORT: 3333
           
-          TEST_HOST: ${{ secrets.TEST_HOST }}
-          TEST_NAME: ${{ secrets.TEST_NAME }}
-          TEST_USER: ${{ secrets.TEST_USER }}
-          TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}          
+          TEST_HOST: "127.0.0.1"
+          TEST_NAME: "test"
+          TEST_USER: "root"
+          TEST_PASSWORD: "1234"
       run: npm test
