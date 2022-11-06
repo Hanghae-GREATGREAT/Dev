@@ -71,17 +71,20 @@ describe('user controller test', ()=>{
 
 
     // 로그인 테스트
-    test('signin: should return status 200, if success',async() => {
+    test.skip('signin: should redirect to "/", if no character',async() => {
         req = {
             body: {
                 username: 'root',
                 password: '1234'
             }
         }
+        res = {
+            redirect: jest.fn(()=>{})
+        }
 
         await UserController.signin(req as Request, res as Response, next as NextFunction);
 
-        expect(res.status).toBeCalledWith(200);
+        expect(res.redirect).toBeCalledWith('/');
     });
 
     test('signin: should call next, if any error happens', async () => {
