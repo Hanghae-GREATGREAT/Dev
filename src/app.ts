@@ -1,5 +1,4 @@
 import env from './config.env';
-
 import express from 'express';
 import sequelize from './db/config/connection';
 import association from './db/config/associate';
@@ -12,7 +11,7 @@ import error from './middlewares/errorhandlers';
 const app = express();
 
 
-if (process.env.NODE_ENV !== 'test') {
+if (env.NODE_ENV !== 'test') {
     sequelize.authenticate().then(() => {
         association();
         console.log('DB CONNECTED');
