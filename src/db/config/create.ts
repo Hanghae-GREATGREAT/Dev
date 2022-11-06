@@ -11,10 +11,10 @@ const connection = mysql2.createConnection({
 
 (() => {
     connection.query(`
-        DROP DATABASE ${process.env.DB_NAME};
+        DROP DATABASE IF EXISTS ${process.env.DB_NAME};
     `);
     connection.query(`
-        CREATE DATABASE ${process.env.DB_NAME};
+        CREATE DATABASE IF NOT EXISTS ${process.env.DB_NAME};
     `);
 
     connection.end();

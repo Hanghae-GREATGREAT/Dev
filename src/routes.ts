@@ -7,7 +7,7 @@ const router = Router();
 
 
 router.get('/', (req, res, next) => {
-    res.json({
+    res.status(200).json({
         message: 'INDEX PAGE',
     });
 });

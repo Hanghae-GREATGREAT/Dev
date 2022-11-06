@@ -1,9 +1,6 @@
 
 
 
-const association = () => {
+export default () => {
 
 }
-
-
-export default association;
