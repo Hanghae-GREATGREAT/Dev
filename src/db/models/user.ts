@@ -30,16 +30,16 @@ Users.init({
       allowNull: false,
     },
     password: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.STRING(100),
       allowNull: false,
     },
     createdAt: {
       type: DataTypes.INTEGER,
-      defaultValue: Date.now() + 1000 * 60 * 60 * 9,
+      defaultValue: (Date.now()/1000)|0 + 60 * 60 * 9,
     },
     updatedAt: {
       type: DataTypes.INTEGER,
-      defaultValue: Date.now() + 1000 * 60 * 60 * 9,
+      defaultValue: (Date.now()/1000)|0 + 60 * 60 * 9,
     },
 }, { 
     sequelize,
