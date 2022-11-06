@@ -3,7 +3,7 @@ import { Fields, Titles, Users } from '../models';
 import {
     Model, DataTypes,
     InferAttributes, InferCreationAttributes,
-    CreationOptional, ForeignKey, NonAttribute
+    CreationOptional, ForeignKey
 } from 'sequelize'
 
 
@@ -16,7 +16,7 @@ class Characters extends Model<
     declare fieldId: ForeignKey<number>;
 
     declare name: string;
-    declare job: number;
+    declare job: string;
     declare level: number;
     declare attack: number;
     declare defense: number;
@@ -24,7 +24,10 @@ class Characters extends Model<
     declare mana: number;
     declare exp: number;
 
-    declare User: NonAttribute<Users>
+    declare createdAt: CreationOptional<number>;
+    declare updatedAt: CreationOptional<number>;
+
+    // declare User: NonAttribute<Users>
     // declare Title: NonAttribute<>;
     // declare Field: NonAttribute<>;
 };
@@ -33,14 +36,14 @@ Characters.init({
     characterId: {
         type: DataTypes.MEDIUMINT.UNSIGNED,
         autoIncrement: true,
-        primaryKey: true,
+        primaryKey: true
     },
     userId: {
         type: DataTypes.MEDIUMINT.UNSIGNED,
         allowNull: false,
         references: {
             model: Users,
-            key: 'userId',
+            key: 'userId'
         }
     },
     titleId: {
@@ -48,7 +51,7 @@ Characters.init({
         allowNull: false,
         references: {
             model: Titles,
-            key: 'titleId',
+            key: 'titleId'
         }
     },
     fieldId: {
@@ -59,40 +62,47 @@ Characters.init({
             key: 'fieldId'
         }
     },
-
     name: {
         type: DataTypes.STRING(40),
         allowNull: false,
-        unique: true,
+        unique: true
     },
     job: {
         type: DataTypes.STRING(40),
-        allowNull: false,
+        allowNull: false
     },
     level: {
         type: DataTypes.TINYINT.UNSIGNED,
-        allowNull: false,
+        allowNull: false
     },
     attack: {
         type: DataTypes.MEDIUMINT.UNSIGNED,
-        allowNull: false,
+        allowNull: false
     },
     defense: {
         type: DataTypes.MEDIUMINT.UNSIGNED,
-        allowNull: false,
+        allowNull: false
     },
     hit: {
         type: DataTypes.MEDIUMINT.UNSIGNED,
-        allowNull: false,
+        allowNull: false
     },
     mana: {
         type: DataTypes.MEDIUMINT.UNSIGNED,
-        allowNull: false,
+        allowNull: false
     },
     exp: {
         type: DataTypes.MEDIUMINT.UNSIGNED,
-        allowNull: false,
+        allowNull: false
     },
+    createdAt: {
+        type: DataTypes.INTEGER,
+        defaultValue: (Date.now()/1000)|0 + 60 * 60 * 9
+    },
+    updatedAt: {
+        type: DataTypes.INTEGER,
+        defaultValue: (Date.now()/1000)|0 + 60 * 60 * 9
+    }
 }, {
     sequelize,
     modelName: 'Characters'
