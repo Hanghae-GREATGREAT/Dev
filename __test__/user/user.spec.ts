@@ -41,7 +41,7 @@ describe('user controller test', ()=>{
 
 
     // 회원가입 테스트
-    test('should return status 200, if success', async()=>{
+    test.skip('should return status 200, if success', async()=>{
         req = {
             body: {
                 username: 'root',
