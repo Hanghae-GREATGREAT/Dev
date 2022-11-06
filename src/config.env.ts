@@ -4,14 +4,14 @@ dotenv.config();
 
 class dBConnection {
 
-    MODE: string;
+    NODE_ENV: string;
     DB_NAME: string;
     DB_USER: string;
     DB_PASSWORD: string;
     DB_HOST: string;
 
     constructor() {
-        this.MODE = process.env.NODE_ENV || 'development';
+        this.NODE_ENV = process.env.NODE_ENV ? process.env.NODE_ENV : 'development';
         this.DB_HOST = process.env.DB_HOST!;
         this.DB_NAME = process.env.DB_NAME!;
         this.DB_USER = process.env.DB_USER!;
