@@ -35,9 +35,6 @@ jobs:
     - name: run test
       env:
           PORT: 3333
+          NODE_ENV: test
           
-          TEST_HOST: "127.0.0.1"
-          TEST_NAME: "test"
-          TEST_USER: "root"
-          TEST_PASSWORD: "1234"
       run: npm test
