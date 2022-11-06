@@ -35,6 +35,12 @@ jobs:
     - name: run test
       env:
           PORT: 3333
-          NODE_ENV: test
+          TEST_HOST: ${{ secrets.TEST_HOST }}
+          TEST_NAME: ${{ secrets.TEST_NAME }}
+          TEST_USER: ${{ secrets.TEST_USER }}
+          TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
+          REDIS_HOST: ${{ secrets.REDIS_HOST }}
+          REDIS_USER: ${{ secrets.REDIS_USER }}
+          REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
           
       run: npm test

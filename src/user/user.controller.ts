@@ -29,7 +29,8 @@ class UserController {
             
             const { userId } = await UserService.signin({ username, password });
             const character = await CharacterService.findOneByUserId(userId);
-            if (!character) {
+            if (character === null) {
+                console.log('꽝');
                 return res.redirect('/')// 캐릭터 없음. 리다이렉션?
             }
             const { questId } = { questId: 1 } // from questCompletes

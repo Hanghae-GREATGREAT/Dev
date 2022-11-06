@@ -1,22 +1,20 @@
 import sequelize from '../config/connection';
-import { Fields, Titles, Users } from '../models';
-import {
+import { 
     Model, DataTypes,
     InferAttributes, InferCreationAttributes,
-    CreationOptional, ForeignKey, NonAttribute
-} from 'sequelize'
-
+    CreationOptional, ForeignKey 
+} from 'sequelize';
 
 class Characters extends Model<
     InferAttributes<Characters>, InferCreationAttributes<Characters>
->{
-    declare characterId: CreationOptional<number>;
-    declare userId: ForeignKey<number>;
-    declare titleId: ForeignKey<number>;
-    declare fieldId: ForeignKey<number>;
+> {
+    declare characterId: CreationOptional<number>
+    declare userId: ForeignKey<number>
+    declare titleId: ForeignKey<number>
+    declare fieldId: ForeignKey<number>
 
     declare name: string;
-    declare job: number;
+    declare job: string;
     declare level: number;
     declare attack: number;
     declare defense: number;
@@ -24,9 +22,8 @@ class Characters extends Model<
     declare mana: number;
     declare exp: number;
 
-    declare User: NonAttribute<Users>
-    // declare Title: NonAttribute<>;
-    // declare Field: NonAttribute<>;
+    declare createdAt: number;
+    declare updatedAt: number;
 };
 
 Characters.init({
@@ -39,64 +36,50 @@ Characters.init({
         type: DataTypes.MEDIUMINT.UNSIGNED,
         allowNull: false,
         references: {
-            model: Users,
-            key: 'userId',
+            model: 'Users',
+            key: 'userId'
         }
     },
     titleId: {
         type: DataTypes.TINYINT.UNSIGNED,
-        allowNull: false,
+        allowNull: true,
         references: {
-            model: Titles,
-            key: 'titleId',
+            model: 'Titles',
+            key: 'titleId'
         }
     },
     fieldId: {
         type: DataTypes.TINYINT.UNSIGNED,
-        allowNull: false,
+        allowNull: true,
         references: {
-            model: Fields,
+            model: 'Fields',
             key: 'fieldId'
         }
     },
 
     name: {
         type: DataTypes.STRING(40),
-        allowNull: false,
-        unique: true,
+        unique: true
     },
-    job: {
-        type: DataTypes.STRING(40),
-        allowNull: false,
-    },
-    level: {
-        type: DataTypes.TINYINT.UNSIGNED,
-        allowNull: false,
-    },
-    attack: {
-        type: DataTypes.MEDIUMINT.UNSIGNED,
-        allowNull: false,
-    },
-    defense: {
-        type: DataTypes.MEDIUMINT.UNSIGNED,
-        allowNull: false,
-    },
-    hit: {
-        type: DataTypes.MEDIUMINT.UNSIGNED,
-        allowNull: false,
-    },
-    mana: {
-        type: DataTypes.MEDIUMINT.UNSIGNED,
-        allowNull: false,
-    },
-    exp: {
-        type: DataTypes.MEDIUMINT.UNSIGNED,
-        allowNull: false,
-    },
+    job: DataTypes.STRING(40),
+    level: DataTypes.TINYINT.UNSIGNED,
+    attack: DataTypes.MEDIUMINT.UNSIGNED,
+    defense: DataTypes.MEDIUMINT.UNSIGNED,
+    hit: DataTypes.MEDIUMINT.UNSIGNED,
+    mana: DataTypes.MEDIUMINT.UNSIGNED,
+    exp: DataTypes.MEDIUMINT.UNSIGNED,
+
+    createdAt: {
+        type: DataTypes.INTEGER,
+        defaultValue: (Date.now()/1000)|0 + 60 * 60 * 9,
+      },
+      updatedAt: {
+        type: DataTypes.INTEGER,
+        defaultValue: (Date.now()/1000)|0 + 60 * 60 * 9,
+      },
 }, {
     sequelize,
     modelName: 'Characters'
 });
-
 
 export default Characters;
