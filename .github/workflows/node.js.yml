@@ -26,6 +26,22 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+    - name: install dependencies
+      run: npm ci
+      
+    - name: build
+      run: npm run build --if-present
+      
+    - name: run test
+      env:
+          PORT: ${{ secrets.PORT }}
+          DEV_HOST: ${{ secrets.DEV_HOST }}
+          DEV_NAME: ${{ secrets.DEV_NAME }}
+          DEV_USER: ${{ secrets.DEV_USER }}
+          DEV_PASSWORD: ${{ secrets.DEV_PASSWORD }}
+          
+          TEST_HOST: ${{ secrets.TEST_HOST }}
+          TEST_NAME: ${{ secrets.TEST_NAME }}
+          TEST_USER: ${{ secrets.TEST_USER }}
+          TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}          
+      run: npm test
