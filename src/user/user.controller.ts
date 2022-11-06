@@ -15,7 +15,7 @@ class UserController {
 
             await UserService.signup({ username, password });
             
-            res.status(200);
+            res.status(200).end();
         } catch (error) {
             next(error);
         }
@@ -27,7 +27,7 @@ class UserController {
 
             await UserService.signin({ username, password });
 
-            res.status(200);
+            res.status(200).end();
         } catch (error) {
             next(error);
         }
@@ -39,7 +39,7 @@ class UserController {
 
             await UserService.signout(userId);
 
-            res.status(200);
+            res.status(200).end();
         } catch (error) {
             next(error);
         }
