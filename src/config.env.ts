@@ -44,7 +44,7 @@ class Env extends dBConnection {
     constructor() {
         super();
 
-        this.PORT = Number(process.env.PORT);
+        this.PORT = Number(process.env.PORT) || 8080;
         this.ROOT_PATH = path.resolve('../');
 
         this.REDIS_HOST = process.env.REDIS_HOST!;
