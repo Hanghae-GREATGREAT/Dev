@@ -58,12 +58,17 @@ body {
     border-bottom: 2px solid gray;
 
     height: 100px;
+
+    display: flex;
+    align-items: center;
 }
 
 .userInfo > span {
     color: rgb(192, 192, 192);
     font-size: 50px;
     margin-left: 50px;
+
+    margin-bottom: 10px;
 }
 
 .commendLine {
@@ -77,6 +82,10 @@ body {
     font-size: 20px;
     margin-left: 25px;
     white-space: pre-line;
+}
+
+.commendLine::-webkit-scrollbar {
+    display: none;
 }
 
 /* .commendLine > span {
@@ -144,6 +153,10 @@ body {
     font-size: 20px;
     margin-left: 25px;
     white-space: pre-line;
+}
+
+.chatingList::-webkit-scrollbar {
+    display: none;
 }
 
 .chatingInput {
