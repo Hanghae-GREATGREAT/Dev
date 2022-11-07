@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import ItemService from './item.service';
-import { ItemInputForm } from '../interfaces/interface';
-import { HttpException, HttpStatus } from '../common';
+// import { ItemInputForm } from '../interfaces/interface';
+// import { HttpException, HttpStatus } from '../common';
 
 class ItemController {
     // async inputItems(req: Request, res: Response, next: NextFunction) {
@@ -35,14 +35,14 @@ class ItemController {
     //     }
     // }
 
-    async itemsInput(req: Request, res: Response, next: NextFunction) {
-        try {
-            await ItemService.itemsInput();
-            res.status(200).send({ message: '장비 데이터 생성완료' });
-        } catch (error) {
-            next();
-        }
-    }
+    // async itemsInput(req: Request, res: Response, next: NextFunction) {
+    //     try {
+    //         await ItemService.itemsInput();
+    //         res.status(200).send({ message: '장비 데이터 생성완료' });
+    //     } catch (error) {
+    //         next();
+    //     }
+    // }
 
     async weaponList(req: Request, res: Response, next: NextFunction) {
         try {
