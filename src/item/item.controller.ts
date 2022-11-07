@@ -44,6 +44,30 @@ class ItemController {
             next();
         }
     }
+
+    async weaponList(req: Request, res: Response, next: NextFunction) {
+        try {
+            // const { npcId }: { npcId: number } = req.body;
+            const npcId = 1;
+            const weaponList = await itemService.weaponList(npcId);
+
+            res.status(200).json({ data: weaponList });
+        } catch (error) {
+            next();
+        }
+    }
+
+    async armorList(req: Request, res: Response, next: NextFunction) {
+        try {
+            // const { npcId }: { npcId: number } = req.body;
+            const npcId = 2;
+            const armorList = await itemService.armorList(npcId);
+
+            res.status(200).json({ data: armorList });
+        } catch (error) {
+            next();
+        }
+    }
 }
 
 export default new ItemController();
