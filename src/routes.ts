@@ -6,6 +6,7 @@ import PageRouter from './page.routes';
 const router = Router();
 
 router.get('/test', async(req, res, next) => {
+    console.log(req.ip);
     res.status(200).json({
         message: 'INDEX PAGE',
     });

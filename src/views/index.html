@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <header>
+    <title>INDEX</title>
+    <style>
+      .wrap{
+        background-color: antiquewhite;
+        width: 100%;
+        max-width: 1200px;
+        height: 100%;
+        max-height: 1000px;
+        margin: 0px auto 0px auto;
+      }
+      .wrap > .header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 150px;
+        background-color: aquamarine;
+      }
+      .wrap > .header > .logo {
+        width: 80%;
+        height: 80%;
+        background-color: deeppink;
+      }
+      .wrap > .main {
+        display: flex;
+        flex-direction: row;
+        background-color: greenyellow;
+      }
+      .wrap > .main > .command {
+        display: flex;
+        flex: 2;
+        flex-direction: column;
+        padding: 10px 5px 10px 10px;
+        background-color: cadetblue;
+      }
+      .wrap > .main > .command > .command-title {
+        height: 100px;
+        margin-bottom: 10px;
+        background-color: brown;
+      }
+      .wrap > .main > .command > .command-body {
+        height: 500px;
+        background-color: coral;
+      }
+      .wrap > .main > .command > .command-input {
+        height: 100px;
+        margin-top: 10px;
+        background-color: darkcyan;
+      }
+      .wrap > .main > .chat {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        padding: 10px 10px 10px 5px;
+        background-color: tomato;
+      }
+      .wrap > .main > .chat > .chat-body {
+        height: 610px;
+        margin-bottom: 10px;
+        background-color: chartreuse;
+      }
+      .wrap > .main > .chat > .chat-input {
+        height: 100px;
+        background-color: violet;
+      }
+
+    </style>
+  </header>
+  <body>
+    <div class="wrap">
+      <div class="header"><h1 class="logo">Logo</h1></div>
+      <div class="main">
+        <div class="command">
+          <div class="command-title"><h3>사용자 기본정보</h2></div>
+          <div class="command-body"><h3>커맨드출력</h3></div>
+          <div class="command-input"><h3>커맨드입력</h3></div>
+        </div>
+        <div class="chat">
+          <div class="chat-body"><h3>채팅상자</h3></div>
+          <div class="chat-input"><h3>채팅입력</h3></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      console.log("INDEX");
+    </script>
+  </body>
+</html>

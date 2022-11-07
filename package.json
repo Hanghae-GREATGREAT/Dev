@@ -16,6 +16,7 @@
     "license": "ISC",
     "dependencies": {
         "@types/cookie-parser": "^1.4.3",
+        "@types/morgan": "^1.9.3",
         "bcrypt": "^5.1.0",
         "cookie-parser": "^1.4.6",
         "dotenv": "^16.0.3",
@@ -23,9 +24,11 @@
         "express": "^4.18.2",
         "joi": "^17.7.0",
         "jsonwebtoken": "^8.5.1",
+        "morgan": "^1.10.0",
         "mysql2": "^2.3.3",
         "redis": "^4.4.0",
-        "sequelize": "^6.25.3"
+        "sequelize": "^6.25.3",
+        "winston": "^3.8.2"
     },
     "devDependencies": {
         "@babel/core": "^7.20.2",

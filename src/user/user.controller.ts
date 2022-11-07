@@ -30,11 +30,10 @@ class UserController {
             const { userId } = await UserService.signin({ username, password });
             const character = await CharacterService.findOneByUserId(userId);
             if (character === null) {
-                console.log('꽝');
                 return res.redirect('/')// 캐릭터 없음. 리다이렉션?
             }
             const { questId } = { questId: 1 } // from questCompletes
-            const ip = req.socket.remoteAddress;
+            const ip = req.ip;
             if (!ip) {
                 throw new HttpException('잘못된 접근입니다', HttpStatus.BAD_REQUEST); // IP가 없음??
             }
