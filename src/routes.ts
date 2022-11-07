@@ -1,5 +1,4 @@
 import { Router } from 'express';
-
 import UserRouter from './user/user.routes';
 import PageRouter from './page.routes';
 
