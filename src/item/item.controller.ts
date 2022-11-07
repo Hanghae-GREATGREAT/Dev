@@ -2,7 +2,6 @@ import { Request, Response, NextFunction } from 'express';
 import ItemService from './item.service';
 import { ItemInputForm } from '../interfaces/interface';
 import { HttpException, HttpStatus } from '../common';
-import itemService from './item.service';
 
 class ItemController {
     // async inputItems(req: Request, res: Response, next: NextFunction) {
@@ -38,7 +37,7 @@ class ItemController {
 
     async itemsInput(req: Request, res: Response, next: NextFunction) {
         try {
-            await itemService.itemsInput();
+            await ItemService.itemsInput();
             res.status(200).send({ message: '장비 데이터 생성완료' });
         } catch (error) {
             next();
@@ -49,7 +48,7 @@ class ItemController {
         try {
             // const { npcId }: { npcId: number } = req.body;
             const npcId = 1;
-            const weaponList = await itemService.weaponList(npcId);
+            const weaponList = await ItemService.weaponList(npcId);
 
             res.status(200).json({ data: weaponList });
         } catch (error) {
@@ -61,7 +60,7 @@ class ItemController {
         try {
             // const { npcId }: { npcId: number } = req.body;
             const npcId = 2;
-            const armorList = await itemService.armorList(npcId);
+            const armorList = await ItemService.armorList(npcId);
 
             res.status(200).json({ data: armorList });
         } catch (error) {
