@@ -4,7 +4,7 @@ import env from '../../config.env';
 
 class RedisCache {
 
-    readonly client: RedisClientType;
+    private readonly client: RedisClientType;
 
     constructor() {
         this.client = createClient({
@@ -31,6 +31,10 @@ class RedisCache {
 
     async get(key: string) {
         return await this.client.get(key);
+    }
+
+    async disconnect() {
+        await this.client.disconnect();
     }
 }
 

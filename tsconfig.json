@@ -6,7 +6,8 @@
         "lib": ["ES6"],
         "esModuleInterop": true,
         "outDir": "build",
-        "strict": true
+        "strict": true,
+        "allowJs": true
     },
     "ts-node": {
         "esm": true
