@@ -1,8 +1,9 @@
 import sequelize from './connection';
-import { Characters, Fields, Titles, Users } from '../models';
+import { Characters, Fields, Titles, Users, Items } from '../models';
 // import * as models from '../models';
 
 (async()=>{
+    await Items.drop();
     await Characters.drop();
     await Fields.drop();
     await Titles.drop();
@@ -12,6 +13,7 @@ import { Characters, Fields, Titles, Users } from '../models';
     await Titles.sync();
     await Fields.sync();
     await Characters.sync();
+    await Items.sync();
 
     await sequelize.close();
 })();
