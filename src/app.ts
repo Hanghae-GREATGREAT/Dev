@@ -1,5 +1,9 @@
 import env from './config.env';
 import express from 'express';
+import { createServer } from 'http';
+import { Server } from 'socket.io';
+import onConnection from './socket/connect';
+
 import morgan from './middlewares/morgan';
 import path from 'path';
 import ejs from 'ejs';
@@ -12,7 +16,6 @@ import error from './middlewares/errorhandlers';
 
 
 const app = express();
-
 
 if (env.NODE_ENV !== 'test') {
     sequelize.authenticate().then(() => {
@@ -40,4 +43,16 @@ app.use(Router);
 app.use(error.logger, error.handler);
 
 
-export default app;
+const httpServer = createServer(app);
+const io = new Server(httpServer, {
+    cors: {
+        origin: '*',
+        methods: '*',
+    }
+});
+
+// io.use((socket, next)=>{})
+io.on('connection', onConnection);
+
+
+export default httpServer;

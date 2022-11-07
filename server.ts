@@ -1,7 +1,6 @@
-import app from './src/app';
+import httpServer from './src/app';
+import env from './src/config.env';
 
-const PORT = process.env.PORT || 3001;
-
-app.listen(PORT, () => {
-    console.log('SERVER RUNNING ON ', PORT);
+httpServer.listen(env.PORT, () => {
+    console.log('SERVER RUNNING ON ', env.PORT);
 });

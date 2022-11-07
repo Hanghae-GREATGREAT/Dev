@@ -18,8 +18,10 @@ class Characters extends Model<
     declare level: number;
     declare attack: number;
     declare defense: number;
-    declare hit: number;
-    declare mana: number;
+    declare maxhp: number;
+    declare maxmp: number;
+    declare hp: number;
+    declare mp: number;
     declare exp: number;
 
     declare createdAt: number;
@@ -65,8 +67,10 @@ Characters.init({
     level: DataTypes.TINYINT.UNSIGNED,
     attack: DataTypes.MEDIUMINT.UNSIGNED,
     defense: DataTypes.MEDIUMINT.UNSIGNED,
-    hit: DataTypes.MEDIUMINT.UNSIGNED,
-    mana: DataTypes.MEDIUMINT.UNSIGNED,
+    maxhp: DataTypes.MEDIUMINT.UNSIGNED,
+    maxmp: DataTypes.MEDIUMINT.UNSIGNED,
+    hp: DataTypes.MEDIUMINT.UNSIGNED,
+    mp: DataTypes.MEDIUMINT.UNSIGNED,
     exp: DataTypes.MEDIUMINT.UNSIGNED,
 
     createdAt: {
