@@ -5,12 +5,14 @@ import * as models from '../models';
 (async () => {
     const modelList = Object.values(models);
 
-    const drops = modelList.map(model=>model.drop());
-    await Promise.all(drops);
+    for (const model of modelList) {
+        await model.drop();
+    }
 
     modelList.reverse();
-    const syncs = modelList.map(model=>model.sync());
-    await Promise.all(syncs);
+    for (const model of modelList) {
+        await model.sync();
+    }
 
     await sequelize.close();
 })();
