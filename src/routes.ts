@@ -1,8 +1,15 @@
 import { Router } from 'express';
-import BattleRouter from './battile/route';
+import UserRouter from './user/user.routes';
+
 
 const router = Router();
 
-router.use('/battle', BattleRouter);
+router.get('/', async(req, res, next) => {
+    res.status(200).json({
+        message: 'INDEX PAGE',
+    });
+});
+
+router.use('/user', UserRouter);
 
 export default router;

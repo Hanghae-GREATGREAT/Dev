@@ -1,20 +1,19 @@
 import mysql2 from 'mysql2';
-import dotenv from 'dotenv';
+import env from '../../config.env';
 
-dotenv.config();
 
 const connection = mysql2.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
+    host: env.DB_HOST,
+    user: env.DB_USER,
+    password: env.DB_PASSWORD,
 });
 
 (() => {
     connection.query(`
-        DROP DATABASE ${process.env.DB_NAME};
+        DROP DATABASE IF EXISTS ${env.DB_NAME};
     `);
     connection.query(`
-        CREATE DATABASE ${process.env.DB_NAME};
+        CREATE DATABASE IF NOT EXISTS ${env.DB_NAME};
     `);
 
     connection.end();

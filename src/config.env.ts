@@ -1,22 +1,52 @@
 import dotenv from 'dotenv';
-
 dotenv.config();
 
 
-class Env {
+interface DBI {
+    [key: string]: string;
+}
+
+class dBConnection {
+
+    NODE_ENV: string;
     DB_NAME: string;
     DB_USER: string;
     DB_PASSWORD: string;
-    PORT: number;
     DB_HOST: string;
 
     constructor() {
+        this.NODE_ENV = process.env.NODE_ENV ? 
+            ( process.env.NODE_ENV ).trim().toLowerCase() : 'development';
+
+        const DB: DBI = {
+            test: 'TEST',
+            development: 'DEV',
+            production: 'PRD',
+        }
+
+        this.DB_HOST = process.env[`${DB[this.NODE_ENV]}_HOST`]!;
+        this.DB_NAME = process.env[`${DB[this.NODE_ENV]}_NAME`]!;
+        this.DB_USER = process.env[`${DB[this.NODE_ENV]}_USER`]!;
+        this.DB_PASSWORD = process.env[`${DB[this.NODE_ENV]}_PASSWORD`]!;   
+    }
+}
+
+
+class Env extends dBConnection {
+
+    PORT: number;
+    REDIS_HOST: string;
+    REDIS_USER: string;
+    REDIS_PASSWORD: string;
+
+    constructor() {
+        super();
+
         this.PORT = Number(process.env.PORT);
 
-        this.DB_HOST = process.env.DB_HOST!;
-        this.DB_NAME = process.env.DB_NAME!;
-        this.DB_USER = process.env.DB_USER!;
-        this.DB_PASSWORD = process.env.DB_PASSWORD!;
+        this.REDIS_HOST = process.env.REDIS_HOST!;
+        this.REDIS_USER = process.env.REDIS_USER!;
+        this.REDIS_PASSWORD = process.env.REDIS_PASSWORD!;
     }
 }
 

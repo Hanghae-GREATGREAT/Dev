@@ -1,62 +1,49 @@
 import {
-  Model,
-  DataTypes,
-  InferAttributes,
-  InferCreationAttributes,
-  CreationOptional,
-} from "sequelize";
-import sequelize from "../config/connection";
-import Comments from "./comment";
-import Posts from "./post";
+    Model, DataTypes,
+    InferAttributes, InferCreationAttributes,
+    CreationOptional,
+} from 'sequelize';
+import sequelize from '../config/connection';
+
 
 class Users extends Model<
-  InferAttributes<Users>,
-  InferCreationAttributes<Users>
+    InferAttributes<Users>, InferCreationAttributes<Users>
 > {
-  // declare 안쓰고 하는 방법 ? - 암시적 any가 되기 때문에 찝찝하다.
-  declare userId: CreationOptional<number>;
-  declare name: string;
-  declare password: string;
-  declare createdAt: CreationOptional<string>;
-  declare updatedAt: CreationOptional<string>;
 
-  static associate() {
-    this.hasMany(Posts, {
-      sourceKey: 'userId',
-      foreignKey: 'userId',
-    });
-    this.hasMany(Comments, {
-      sourceKey: 'userId',
-      foreignKey: 'userId',
-    });
-  }
+    declare userId: CreationOptional<number>;
+    declare username: string;
+    declare password: string;
+    declare createdAt: CreationOptional<number>;
+    declare updatedAt: CreationOptional<number>;
+
+    static associate() {}
 }
 
-Users.init(
-  {
+Users.init({
     userId: {
-      type: DataTypes.INTEGER.UNSIGNED,
+      type: DataTypes.MEDIUMINT.UNSIGNED,
       autoIncrement: true,
       primaryKey: true,
     },
-    name: {
-      type: DataTypes.STRING,
+    username: {
+      type: DataTypes.STRING(20),
       allowNull: false,
     },
     password: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(100),
       allowNull: false,
     },
     createdAt: {
-      type: DataTypes.STRING,
-      defaultValue: new Date().toLocaleString(),
+      type: DataTypes.INTEGER,
+      defaultValue: (Date.now()/1000)|0 + 60 * 60 * 9,
     },
     updatedAt: {
-      type: DataTypes.STRING,
-      defaultValue: new Date().toLocaleString(),
+      type: DataTypes.INTEGER,
+      defaultValue: (Date.now()/1000)|0 + 60 * 60 * 9,
     },
-  },
-  { sequelize }
-);
+}, { 
+    sequelize,
+    modelName: "Users"
+});
 
 export default Users;

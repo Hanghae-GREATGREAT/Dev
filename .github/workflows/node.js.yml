@@ -26,6 +26,21 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: echo "ALL GREEN"
+    - name: install dependencies
+      run: npm ci
+      
+    - name: build
+      run: npm run build --if-present
+      
+    - name: run test
+      env:
+          PORT: 3333
+          TEST_HOST: ${{ secrets.TEST_HOST }}
+          TEST_NAME: ${{ secrets.TEST_NAME }}
+          TEST_USER: ${{ secrets.TEST_USER }}
+          TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
+          REDIS_HOST: ${{ secrets.REDIS_HOST }}
+          REDIS_USER: ${{ secrets.REDIS_USER }}
+          REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
+          
+      run: npm test
