@@ -32,6 +32,7 @@ if (env.NODE_ENV !== 'test') {
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html', ejs.renderFile);
 app.set('view engine', 'ejs');
+app.use(express.static('public'));
 
 app.use(morgan.middleware);
 app.use(express.static(path.join(__dirname, 'public')));
