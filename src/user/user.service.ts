@@ -11,7 +11,7 @@ class UserService {
             password: await bcrypt.hash(password!, 10),
         }
         await Users.create(user);
-    };
+    }
 
     async signin({ username, password }: Partial<Users>) {
         const user = await Users.findOne({
@@ -23,9 +23,11 @@ class UserService {
         if (!result) throw new HttpException('비밀번호가 일치하지 않습니다', HttpStatus.BAD_REQUEST);
 
         return user;
-    };
+    }
 
-    async signout(userId: string) {};
+    async signout(userId: string) {
+        console.log('SIGNOUT')
+    };
 }
 
 

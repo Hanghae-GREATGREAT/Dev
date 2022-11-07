@@ -1,5 +1,8 @@
 import env from './config.env';
 import express from 'express';
+import morgan from './middlewares/morgan';
+import path from 'path';
+import ejs from 'ejs';
 import sequelize from './db/config/connection';
 import association from './db/config/associate';
 import cookieParser from 'cookie-parser';
@@ -23,6 +26,12 @@ if (env.NODE_ENV !== 'test') {
     });    
 }
 
+app.set('views', path.join(__dirname, 'views'));
+app.engine('html', ejs.renderFile);
+app.set('view engine', 'ejs');
+
+app.use(morgan.middleware);
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 app.use(express.json());
 

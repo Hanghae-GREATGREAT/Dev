@@ -1,3 +1,4 @@
+import path from 'path';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -35,6 +36,7 @@ class dBConnection {
 class Env extends dBConnection {
 
     PORT: number;
+    ROOT_PATH: string;
     REDIS_HOST: string;
     REDIS_USER: string;
     REDIS_PASSWORD: string;
@@ -43,6 +45,7 @@ class Env extends dBConnection {
         super();
 
         this.PORT = Number(process.env.PORT);
+        this.ROOT_PATH = path.resolve('../');
 
         this.REDIS_HOST = process.env.REDIS_HOST!;
         this.REDIS_USER = process.env.REDIS_USER!;
