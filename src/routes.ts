@@ -1,5 +1,4 @@
 import { Router } from 'express';
-
 import UserRouter from './user/user.routes';
 
 
@@ -12,6 +11,5 @@ router.get('/', async(req, res, next) => {
 });
 
 router.use('/user', UserRouter);
-
 
 export default router;
