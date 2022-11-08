@@ -1,4 +1,4 @@
-import { Characters } from "../db/models";
+import { Characters, Fields, Titles, Users } from "../db/models";
 
 
 class CharacterService {
@@ -12,6 +12,26 @@ class CharacterService {
             return null;
         }
         return result;
+    }
+
+    async findOneByName(name: string) {
+        const result =  await Characters.findOne({
+            where: { name },
+            include: [Users, Fields, Titles]
+        });
+
+        if (!result) {
+            return null;
+        }
+        return {
+            ...result.get(),
+            User: result.User.getDataValue('username'),
+            Title: result.Title.getDataValue('name'),
+            Field: {
+                name: result.Field.getDataValue('name'),
+                level: result.Field.getDataValue('level'),
+            }
+        };
     }
 }
 
