@@ -10,7 +10,7 @@ import ItemRouter from './item/item.routes';
 const router = Router();
 
 router.get('/test', async (req, res, next) => {
-    console.log(req.ip);
+    console.log('test: ', req.socket);
     res.status(200).json({
         message: 'INDEX PAGE',
     });

@@ -25,12 +25,16 @@ class RedisCache {
         await this.client.connect();
     }
 
-    async set(key: string, value: string, option: SetOptions ) {
+    async set(key: string, value: string, option: SetOptions = {} ) {
         await this.client.set(key, value, option);
     }
 
     async get(key: string) {
         return await this.client.get(key);
+    }
+
+    async del(key: string) {
+        await this.client.del(key);
     }
 
     async disconnect() {

@@ -3,12 +3,13 @@ import express from 'express';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
 import onConnection from './socket/connect';
+import SocketMiddleware from './socket/middleware';
 
 import morgan from './middlewares/morgan';
 import path from 'path';
 import ejs from 'ejs';
 import sequelize from './db/config/connection';
-import association from './db/config/associate';
+import associate from './db/config/associate';
 import cookieParser from 'cookie-parser';
 import cors from 'cors'
 
@@ -20,7 +21,7 @@ const app = express();
 
 if (env.NODE_ENV !== 'test') {
     sequelize.authenticate().then(() => {
-        association();
+        associate();
         console.log('DB CONNECTED');
     }).catch((error) => {
         console.error(error);
@@ -52,15 +53,18 @@ app.use(error.logger, error.handler);
 
 
 const httpServer = createServer(app);
+// SocketController.init(httpServer);
+
 const io = new Server(httpServer, {
     cors: {
         origin: '*',
         methods: '*',
     }
 });
-
-// io.use((socket, next)=>{})
+io.use((socket, next)=>{next()})
+// io.use(SocketMiddleware)
 io.on('connection', onConnection);
+
 
 
 export default httpServer;

@@ -4,6 +4,7 @@ import {
     CreationOptional,
 } from 'sequelize';
 import sequelize from '../config/connection';
+import Characters from './character';
 
 
 class Fields extends Model<
@@ -14,7 +15,12 @@ class Fields extends Model<
     declare name: string;
     declare level: number;
 
-    static associate() {}
+    static associate() {
+        this.hasMany(Characters, {
+            sourceKey: 'fieldId',
+            foreignKey: 'fieldId'
+        });
+    }
 }
 
 Fields.init({
