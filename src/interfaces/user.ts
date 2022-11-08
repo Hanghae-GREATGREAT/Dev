@@ -7,10 +7,15 @@ interface SignupForm {
 }
 
 interface UserSession {
-    userId: number;
-    characterId: number;
     username: string;
     name: string;
+    level: number;
+    maxhp: number;
+    maxmp: number;
+    hp: number;
+    mp: number;
+    exp: number;
+    questId: number;
 }
 
 
