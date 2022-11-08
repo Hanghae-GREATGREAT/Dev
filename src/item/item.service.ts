@@ -45,12 +45,9 @@ class ItemService {
     //     await Items.bulkCreate(items);
     // }
 
-    async weaponList(npcId: number) {
-        return Items.findAll({ where: { npcId } });
-    }
-
-    async armorList(npcId: number) {
-        return Items.findAll({ where: { npcId } });
+    async itemList() {
+        return Items.findAll();
+    
     }
 }
 

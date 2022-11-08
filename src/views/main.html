@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
         <link
             href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap"
             rel="stylesheet"
@@ -23,7 +24,7 @@
                     <section class="userInfo">
                         <span>홍길동 / Lv.001</span>
                     </section>
-                    <section class="commendLine"><span>야압! 기합을 실은 당신의 정권지르기가 고슴도치에게격중되었다 ! <span style="color: green">=> 6</span>
+                    <section class="commendLine" id="commendLine"><span>야압! 기합을 실은 당신의 정권지르기가 고슴도치에게격중되었다 ! <span style="color: green">=> 6</span>
                     고슴도치가 필사적으로 가시를 곤두세운다 ! <span style="color: red">이잉.. 아프네.. -8</span>
 
                 당신은 고슴도치를 철검으로 강력하게 공격했다. <span style="color: green">=> 10</span>
@@ -45,7 +46,7 @@
                     </section>
                     <form class="commendInput">
                         <input
-                        name="commendInput"
+                        id="commendInput"
                             type="text"
                             placeholder="커맨드를 입력해주세요."
                         /><button>전송</button>

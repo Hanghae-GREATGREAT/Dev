@@ -5,7 +5,6 @@ const router = Router();
 
 // router.post('/input', ItemController.inputItems);
 // router.post('/input', ItemController.itemsInput);
-router.get('/weapons',ItemController.weaponList)
-router.get('/armors',ItemController.armorList)
+router.get('/',ItemController.itemList)
 
 export default router;
