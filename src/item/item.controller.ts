@@ -44,25 +44,11 @@ class ItemController {
     //     }
     // }
 
-    async weaponList(req: Request, res: Response, next: NextFunction) {
+    async itemList(req: Request, res: Response, next: NextFunction) {
         try {
-            // const { npcId }: { npcId: number } = req.body;
-            const npcId = 1;
-            const weaponList = await ItemService.weaponList(npcId);
+            const itemList = await ItemService.itemList();
 
-            res.status(200).json({ data: weaponList });
-        } catch (error) {
-            next();
-        }
-    }
-
-    async armorList(req: Request, res: Response, next: NextFunction) {
-        try {
-            // const { npcId }: { npcId: number } = req.body;
-            const npcId = 2;
-            const armorList = await ItemService.armorList(npcId);
-
-            res.status(200).json({ data: armorList });
+            res.status(200).json({ data: itemList });
         } catch (error) {
             next();
         }
