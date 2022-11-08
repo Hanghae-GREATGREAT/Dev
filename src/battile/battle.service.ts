@@ -1,4 +1,5 @@
-import { Characters, Fields } from '../db/models';
+import { Characters, Fields, Monsters } from '../db/models';
+// import Monsters from '../db/models/monster'
 
 class BattleService {
     // 모든 던전이름 목록 반환
@@ -26,6 +27,23 @@ class BattleService {
         const result = dungeonInfo;
 
         return result;
+    }
+
+    /** 캐릭터 정보 가공하여 반환 */
+    async getCharacterStatus(characterId: number) {
+        return await Characters.findByPk(characterId);
+    }
+
+    /** 몬스터 정보 가공하여 반환 */
+    async getMonsterStatus(monsterId: number) {
+        return await Monsters.findByPk(monsterId);
+    }
+
+    async fightAction(input: number) {
+        return '';
+    }
+    async resultScript(actionResult: string) {
+        return '';
     }
 
     /** 던전 목록 반환 */
