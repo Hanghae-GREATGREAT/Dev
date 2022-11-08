@@ -4,6 +4,7 @@ import {
     CreationOptional,
 } from 'sequelize';
 import sequelize from '../config/connection';
+import Characters from './character';
 
 
 class Titles extends Model<
@@ -13,7 +14,12 @@ class Titles extends Model<
     declare titleId: CreationOptional<number>;
     declare name: string;
 
-    static associate() {}
+    static associate() {
+        this.hasMany(Characters, {
+            sourceKey: 'titleId',
+            foreignKey: 'titleId'
+        });
+    }
 }
 
 Titles.init({

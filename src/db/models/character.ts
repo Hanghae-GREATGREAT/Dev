@@ -2,8 +2,9 @@ import sequelize from '../config/connection';
 import { 
     Model, DataTypes,
     InferAttributes, InferCreationAttributes,
-    CreationOptional, ForeignKey 
+    CreationOptional, ForeignKey, NonAttribute
 } from 'sequelize';
+import { Users, Titles, Fields } from '../models';
 
 class Characters extends Model<
     InferAttributes<Characters>, InferCreationAttributes<Characters>
@@ -26,6 +27,25 @@ class Characters extends Model<
 
     declare createdAt: number;
     declare updatedAt: number;
+
+    declare User: NonAttribute<Users>;
+    declare Title: NonAttribute<Titles>;
+    declare Field: NonAttribute<Fields>;
+
+    static associate() {
+        this.belongsTo(Users, {
+            targetKey: 'userId',
+            foreignKey: 'userId'
+        });
+        this.belongsTo(Titles, {
+            targetKey: 'titleId',
+            foreignKey: 'titleId'
+        });
+        this.belongsTo(Fields, {
+            targetKey: 'fieldId',
+            foreignKey: 'fieldId'
+        });
+    }
 };
 
 Characters.init({
@@ -59,10 +79,7 @@ Characters.init({
         }
     },
 
-    name: {
-        type: DataTypes.STRING(40),
-        unique: true
-    },
+    name: DataTypes.STRING(40),
     job: DataTypes.STRING(40),
     level: DataTypes.TINYINT.UNSIGNED,
     attack: DataTypes.MEDIUMINT.UNSIGNED,
