@@ -1,4 +1,4 @@
-import BattileService from './battle.service';
+import BattleService from './battle.service';
 import { NextFunction, request, Request, Response } from 'express';
 import { InputForm } from '../interfaces/dungeon';
 import { HttpException, HttpStatus } from '../common';
@@ -16,7 +16,7 @@ export default {
     // 던전 선택화면
     dungeonSelect: async (req: Request, res: Response, next: NextFunction) => {
         try {
-            const result = await BattileService.getDungeonList();
+            const result = await BattleService.getDungeonList();
 
             res.status(200).send(result);
         } catch (error) {
@@ -57,7 +57,7 @@ export default {
 
             const { dungeonIndex } = req.app.locals.dungeonStatus;
 
-            const dungeonInfo = await BattileService.selectedDungeonInfo(
+            const dungeonInfo = await BattleService.selectedDungeonInfo(
                 dungeonIndex,
             );
 
