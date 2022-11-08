@@ -1,6 +1,6 @@
 import { Server, Socket } from 'socket.io';
 import { ASICallback } from '../interfaces/socket';
-import ChatController from './chat';
+// import ChatController from './chat';
 
 
 class SocketController {
@@ -8,7 +8,7 @@ class SocketController {
     private static _init() {
         const socketInterface: Map<string, ASICallback> = SocketController._interfaces;
         
-        ChatController.getInstance().load(socketInterface);
+        // ChatController.getInstance().load(socketInterface);
     }
 
     constructor(server: any) {

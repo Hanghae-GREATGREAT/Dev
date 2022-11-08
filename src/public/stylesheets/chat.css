@@ -6,7 +6,7 @@ body {
     background-color: rgba(0, 130, 132);
 }
 
-.container {
+body > .container {
     width: 1280px;
     height: 720px;
     background-color: black;
@@ -17,21 +17,21 @@ body {
     margin-top: 100px;
 }
 
-.logo {
+body > .container > .logo {
     background-color: rgb(0, 88, 230);
 
     height: 50px;
     border-radius: 15px 15px 0 0;
 }
 
-.logo > span {
+body > .container > .logo > span {
     font-size: 30px;
     margin-left: 30px;
 
     color: white;
 }
 
-.windows {
+body > .container > .windows {
     width: 1280px;
     height: 650px;
 
@@ -41,7 +41,7 @@ body {
     /* background-color: aliceblue; */
 }
 
-.commendWindow {
+body > .container > .windows > .commendWindow {
     border: 2px solid gray;
     border-radius: 5px;
 
@@ -54,16 +54,21 @@ body {
     float: left;
 }
 
-.userInfo {
+body > .container > .windows > .commendWindow > .userInfo {
     border-bottom: 2px solid gray;
 
     height: 100px;
 
     display: flex;
     align-items: center;
+    flex-direction: row;
 }
 
-.userInfo > span {
+body > .container > .windows > .commendWindow > .userInfo > .infoName {
+    flex: 3;
+}
+
+body > .container > .windows > .commendWindow > .userInfo > .infoName > span {
     color: rgb(192, 192, 192);
     font-size: 50px;
     margin-left: 50px;
@@ -71,7 +76,30 @@ body {
     margin-bottom: 10px;
 }
 
-.commendLine {
+body > .container > .windows > .commendWindow > .userInfo > .infoName > .exp {
+    font-size: 25px;
+    margin-left: 10px;
+}
+
+body > .container > .windows > .commendWindow > .userInfo > .infoSub {
+    flex: 1;
+
+    color:rgb(192, 192, 192);
+    margin-right: 20px;
+    /* margin-bottom: -10px; */
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+body > .container > .windows > .commendWindow > .userInfo > .infoSub > .infoStatus {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+body > .container > .windows > .commendWindow > .commendLine {
     margin-top: 10px;
 
     height: 450px;
@@ -84,7 +112,7 @@ body {
     white-space: pre-line;
 }
 
-.commendLine::-webkit-scrollbar {
+body > .container > .windows > .commendWindow > .commendLine::-webkit-scrollbar {
     display: none;
 }
 
@@ -95,7 +123,7 @@ body {
     white-space: pre-line;
 } */
 
-.commendInput {
+body > .container > .windows > .commendWindow > .commendInput {
     border-top: 2px solid gray;
 
     margin-top: 6px;
@@ -103,7 +131,7 @@ body {
     height: 80px;
 }
 
-.commendInput > input {
+body > .container > .windows > .commendWindow > .commendInput > input {
     border: none;
     background: transparent;
 
@@ -117,7 +145,7 @@ body {
     margin-left: 25px;
 }
 
-.commendInput > button {
+body > .container > .windows > .commendWindow > .commendInput > button {
     border: none;
     background: transparent;
 
@@ -127,11 +155,11 @@ body {
     margin-left: 25px;
 }
 
-.commendInput > button:hover {
+body > .container > .windows > .commendWindow > .commendInput > button:hover {
     font-weight: bold;
 }
 
-.chatingWindow {
+body > .container > .windows > .chatingWindow {
     border: 2px solid gray;
     border-radius: 5px;
 
@@ -144,7 +172,7 @@ body {
     float: right;
 }
 
-.chatingList {
+body > .container > .windows > .chatingWindow > .chatingList {
     height: 560px;
 
     overflow: auto;
@@ -155,11 +183,11 @@ body {
     white-space: pre-line;
 }
 
-.chatingList::-webkit-scrollbar {
+body > .container > .windows > .chatingWindow > .chatingList::-webkit-scrollbar {
     display: none;
 }
 
-.chatingInput {
+body > .container > .windows > .chatingWindow > .chatingInput {
     border-top: 2px solid gray;
 
     margin-top: 8px;
@@ -167,7 +195,7 @@ body {
     height: 80px;
 }
 
-.chatingInput > input {
+body > .container > .windows > .chatingWindow > .chatingInput > input {
     border: none;
     background: transparent;
 
@@ -181,7 +209,7 @@ body {
     margin-left: 25px;
 }
 
-.chatingInput > button {
+body > .container > .windows > .chatingWindow > .chatingInput > button {
     border: none;
     background: transparent;
 
@@ -191,6 +219,6 @@ body {
     margin-left: 25px;
 }
 
-.chatingInput > button:hover {
+body > .container > .windows > .chatingWindow > .chatingInput > button:hover {
     font-weight: bold;
 }
