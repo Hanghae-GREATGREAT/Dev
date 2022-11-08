@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
         <link
             href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap"
             rel="stylesheet"
@@ -13,192 +14,6 @@
         <!-- <link rel="stylesheet" href="./main.css" />
          -->
          <link rel="stylesheet" type="text/css" href="main.css">
-        <!-- <style>
-            * {
-                font-family: 'Noto Sans KR', sans-serif;
-            }
-
-            body {
-                background-color: rgba(0, 130, 132);
-            }
-
-            .container {
-                width: 1280px;
-                height: 720px;
-                background-color: black;
-                border: 5px solid gray;
-                border-radius: 20px;
-
-                margin: 0 auto;
-                margin-top: 100px;
-            }
-
-            .logo {
-                background-color: rgb(0, 88, 230);
-
-                height: 50px;
-                border-radius: 15px 15px 0 0;
-            }
-
-            .logo > span {
-                font-size: 30px;
-                margin-left: 30px;
-
-                color: white;
-            }
-
-            .windows {
-                width: 1280px;
-                height: 650px;
-
-                margin-top: 8px;
-
-                /* overflow: hidden; */
-                /* background-color: aliceblue; */
-            }
-
-            .commendWindow {
-                border: 2px solid gray;
-                border-radius: 5px;
-
-                margin-left: 25px;
-
-                width: 800px;
-                height: 650px;
-
-                /* overflow: hidden; */
-                float: left;
-            }
-
-            .userInfo {
-                border-bottom: 2px solid gray;
-
-                height: 100px;
-            }
-
-            .userInfo > span {
-                color: rgb(192, 192, 192);
-                font-size: 50px;
-                margin-left: 50px;
-            }
-
-            .commendLine {
-                margin-top: 10px;
-
-                height: 450px;
-
-                overflow: auto;
-
-                color: rgb(192, 192, 192);
-                font-size: 20px;
-                margin-left: 25px;
-                white-space: pre-line;
-            }
-
-            /* .commendLine > span {
-                color: rgb(192, 192, 192);
-                font-size: 20px;
-                margin-left: 25px;
-                white-space: pre-line;
-            } */
-
-            .commendInput {
-                border-top: 2px solid gray;
-
-                margin-top: 6px;
-
-                height: 80px;
-            }
-
-            .commendInput > input {
-                border: none;
-                background: transparent;
-
-                font-size: 20px;
-                color: rgb(192, 192, 192);
-
-                width: 75%;
-                height: 70%;
-
-                margin-top: 10px;
-                margin-left: 25px;
-            }
-
-            .commendInput > button {
-                border: none;
-                background: transparent;
-
-                font-size: 20px;
-                color: rgb(192, 192, 192);
-
-                margin-left: 25px;
-            }
-
-            .commendInput > button:hover {
-                font-weight: bold;
-            }
-
-            .chatingWindow {
-                border: 2px solid gray;
-                border-radius: 5px;
-
-                margin-right: 25px;
-
-                width: 400px;
-                height: 650px;
-
-                /* overflow: hidden; */
-                float: right;
-            }
-
-            .chatingList {
-                height: 560px;
-
-                overflow: auto;
-
-                color: rgb(192, 192, 192);
-                font-size: 20px;
-                margin-left: 25px;
-                white-space: pre-line;
-            }
-
-            .chatingInput {
-                border-top: 2px solid gray;
-
-                margin-top: 8px;
-
-                height: 80px;
-            }
-
-            .chatingInput > input {
-                border: none;
-                background: transparent;
-
-                font-size: 20px;
-                color: rgb(192, 192, 192);
-
-                width: 65%;
-                height: 70%;
-
-                margin-top: 10px;
-                margin-left: 25px;
-            }
-
-            .chatingInput > button {
-                border: none;
-                background: transparent;
-
-                font-size: 20px;
-                color: rgb(192, 192, 192);
-
-                margin-left: 25px;
-            }
-
-            .chatingInput > button:hover {
-                font-weight: bold;
-            }
-
-        </style> -->
     </head>
     <body>
         <div class="container">
@@ -210,7 +25,7 @@
                     <section class="userInfo">
                         <span>홍길동 / Lv.001</span>
                     </section>
-                    <section class="commendLine"><span>야압! 기합을 실은 당신의 정권지르기가 고슴도치에게격중되었다 ! <span style="color: green">=> 6</span>
+                    <section class="commendLine" id="commendLine"><span>야압! 기합을 실은 당신의 정권지르기가 고슴도치에게격중되었다 ! <span style="color: green">=> 6</span>
                     고슴도치가 필사적으로 가시를 곤두세운다 ! <span style="color: red">이잉.. 아프네.. -8</span>
 
                 당신은 고슴도치를 철검으로 강력하게 공격했다. <span style="color: green">=> 10</span>
@@ -232,7 +47,7 @@
                     </section>
                     <form class="commendInput">
                         <input
-                        name="commendInput"
+                        id="commendInput"
                             type="text"
                             placeholder="커맨드를 입력해주세요."
                         /><button>전송</button>
@@ -276,25 +91,24 @@
 
         <!-- <script src="main.js"></script> -->
         <script>
-           
-//--------------------------------------------------------------
-           function a(evt) {
-            evt.preventDefault(); /* POST 이벤트 중지 */
-            const commendInput = evt.target.commendInput.value;
-            console.log(commendInput)
-            if (!commendInput) {
-              return alert('이름과 개수를 모두 입력하세요');
+            const commendForm = document.querySelector('.commendInput');
+            commendForm.addEventListener('submit',a)
+ 
+           async function a(e){
+             e.preventDefault()
+            const commendInput = document.getElementById('commendInput');
+            const npcId ={npcId:+commendInput.value}
+            const {data} = await axios.post('http://localhost:3001/items',npcId)
+            console.log(data.data)
             }
-          
-            const url = 'http://127.0.0.1:3000/';
-            const data = { commendInput };
-            fetch(url, {
-              method: 'POST',
-              body: JSON.stringify(data),
-            });
-          }
-          
-          document.querySelector('form').addEventListener('submit', a);
+
+            const item =[];
+           const items = async ()=>{
+               const {data} = await axios.get('http://localhost:3001/items')
+               console.log(data)
+               item.push(data.data)
+            }
+            console.log(item)
         </script>
     </body>
 </html>
