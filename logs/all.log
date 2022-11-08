@@ -1105,3 +1105,655 @@
 [35m[39m
 2022-11-09 03:37:57:3757 [35mhttp[39m: [35mGET /js/chat.js 200 364 - 0.891 ms[39m
 [35m[39m
+2022-11-09 03:44:14:4414 [35mhttp[39m: [35mGET / 200 5106 - 5.977 ms[39m
+[35m[39m
+2022-11-09 03:44:14:4414 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 1.311 ms[39m
+[35m[39m
+2022-11-09 03:44:14:4414 [35mhttp[39m: [35mGET /js/main.js 200 3248 - 6.902 ms[39m
+[35m[39m
+2022-11-09 03:45:59:4559 [35mhttp[39m: [35mGET / 304 - - 2.300 ms[39m
+[35m[39m
+2022-11-09 03:45:59:4559 [35mhttp[39m: [35mGET /js/main.js 304 - - 0.256 ms[39m
+[35m[39m
+2022-11-09 03:45:59:4559 [35mhttp[39m: [35mGET /stylesheets/main.css 200 4501 - 2.599 ms[39m
+[35m[39m
+2022-11-09 03:59:21:5921 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 3.586 ms[39m
+[35m[39m
+2022-11-09 03:59:22:5922 [35mhttp[39m: [35mGET / 200 3826 - 5.032 ms[39m
+[35m[39m
+2022-11-09 03:59:22:5922 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 0.423 ms[39m
+[35m[39m
+2022-11-09 03:59:22:5922 [35mhttp[39m: [35mGET /js/main.js 200 3248 - 3.443 ms[39m
+[35m[39m
+2022-11-09 04:05:00:50 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 0.703 ms[39m
+[35m[39m
+2022-11-09 04:10:48:1048 [35mhttp[39m: [35mGET / 304 - - 2.564 ms[39m
+[35m[39m
+2022-11-09 04:10:48:1048 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 0.439 ms[39m
+[35m[39m
+2022-11-09 04:10:48:1048 [35mhttp[39m: [35mGET /js/main.js 200 4741 - 2.809 ms[39m
+[35m[39m
+2022-11-09 04:10:52:1052 [35mhttp[39m: [35mGET / 304 - - 1.972 ms[39m
+[35m[39m
+2022-11-09 04:10:52:1052 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 1.152 ms[39m
+[35m[39m
+2022-11-09 04:10:52:1052 [35mhttp[39m: [35mGET /js/main.js 304 - - 2.529 ms[39m
+[35m[39m
+2022-11-09 04:10:55:1055 [35mhttp[39m: [35mGET /? 200 3826 - 1.189 ms[39m
+[35m[39m
+2022-11-09 04:10:55:1055 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 0.476 ms[39m
+[35m[39m
+2022-11-09 04:10:55:1055 [35mhttp[39m: [35mGET /js/main.js 304 - - 2.028 ms[39m
+[35m[39m
+2022-11-09 04:13:01:131 [35mhttp[39m: [35mGET /? 304 - - 2.352 ms[39m
+[35m[39m
+2022-11-09 04:13:01:131 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 1.243 ms[39m
+[35m[39m
+2022-11-09 04:13:01:131 [35mhttp[39m: [35mGET /js/main.js 200 4679 - 4.406 ms[39m
+[35m[39m
+2022-11-09 04:13:03:133 [35mhttp[39m: [35mGET /? 304 - - 3.822 ms[39m
+[35m[39m
+2022-11-09 04:13:03:133 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 0.448 ms[39m
+[35m[39m
+2022-11-09 04:13:03:133 [35mhttp[39m: [35mGET /js/main.js 304 - - 2.968 ms[39m
+[35m[39m
+2022-11-09 04:13:04:134 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 0.467 ms[39m
+[35m[39m
+2022-11-09 04:13:09:139 [35mhttp[39m: [35mGET / 304 - - 1.201 ms[39m
+[35m[39m
+2022-11-09 04:13:09:139 [35mhttp[39m: [35mGET /js/main.js 304 - - 1.281 ms[39m
+[35m[39m
+2022-11-09 04:13:09:139 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 3.695 ms[39m
+[35m[39m
+2022-11-09 04:13:11:1311 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 0.519 ms[39m
+[35m[39m
+2022-11-09 04:13:17:1317 [35mhttp[39m: [35mGET /front 304 - - 2.502 ms[39m
+[35m[39m
+2022-11-09 04:13:38:1338 [35mhttp[39m: [35mGET /front 200 5209 - 1.594 ms[39m
+[35m[39m
+2022-11-09 04:13:42:1342 [35mhttp[39m: [35mPOST /user/signin 200 124 - 131.167 ms[39m
+[35m[39m
+2022-11-09 04:13:42:1342 [35mhttp[39m: [35mGET / 304 - - 2.110 ms[39m
+[35m[39m
+2022-11-09 04:13:42:1342 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 0.645 ms[39m
+[35m[39m
+2022-11-09 04:13:42:1342 [35mhttp[39m: [35mGET /js/main.js 304 - - 1.992 ms[39m
+[35m[39m
+2022-11-09 04:13:47:1347 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 0.546 ms[39m
+[35m[39m
+2022-11-09 04:14:48:1448 [35mhttp[39m: [35mGET / 200 4012 - 1.869 ms[39m
+[35m[39m
+2022-11-09 04:14:48:1448 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 0.508 ms[39m
+[35m[39m
+2022-11-09 04:14:48:1448 [35mhttp[39m: [35mGET /js/main.js 304 - - 0.825 ms[39m
+[35m[39m
+2022-11-09 04:14:58:1458 [35mhttp[39m: [35mGET /? 200 4012 - 4.113 ms[39m
+[35m[39m
+2022-11-09 04:14:58:1458 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 1.411 ms[39m
+[35m[39m
+2022-11-09 04:14:58:1458 [35mhttp[39m: [35mGET /js/main.js 304 - - 0.601 ms[39m
+[35m[39m
+2022-11-09 04:16:57:1657 [35mhttp[39m: [35mGET /front 304 - - 1.969 ms[39m
+[35m[39m
+2022-11-09 04:17:01:171 [35mhttp[39m: [35mPOST /user/signin 200 124 - 90.282 ms[39m
+[35m[39m
+2022-11-09 04:17:01:171 [35mhttp[39m: [35mGET / 304 - - 1.714 ms[39m
+[35m[39m
+2022-11-09 04:17:01:171 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 0.501 ms[39m
+[35m[39m
+2022-11-09 04:17:01:171 [35mhttp[39m: [35mGET /js/main.js 200 4685 - 1.387 ms[39m
+[35m[39m
+2022-11-09 04:17:40:1740 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 0.473 ms[39m
+[35m[39m
+2022-11-09 04:17:41:1741 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 23.119 ms[39m
+[35m[39m
+2022-11-09 04:17:44:1744 [35mhttp[39m: [35mGET /front 304 - - 1.075 ms[39m
+[35m[39m
+2022-11-09 04:17:49:1749 [35mhttp[39m: [35mPOST /user/signin 200 124 - 100.966 ms[39m
+[35m[39m
+2022-11-09 04:17:49:1749 [35mhttp[39m: [35mGET / 304 - - 1.868 ms[39m
+[35m[39m
+2022-11-09 04:17:49:1749 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 0.625 ms[39m
+[35m[39m
+2022-11-09 04:17:49:1749 [35mhttp[39m: [35mGET /js/main.js 200 4682 - 1.582 ms[39m
+[35m[39m
+2022-11-09 04:19:15:1915 [35mhttp[39m: [35mGET /front 200 5209 - 7.230 ms[39m
+[35m[39m
+2022-11-09 04:19:15:1915 [35mhttp[39m: [35mGET /favicon.ico 404 150 - 3.033 ms[39m
+[35m[39m
+2022-11-09 04:19:19:1919 [35mhttp[39m: [35mPOST /user/signin 200 124 - 129.412 ms[39m
+[35m[39m
+2022-11-09 04:19:19:1919 [35mhttp[39m: [35mGET / 200 4012 - 3.178 ms[39m
+[35m[39m
+2022-11-09 04:19:19:1919 [35mhttp[39m: [35mGET /stylesheets/main.css 200 4501 - 6.029 ms[39m
+[35m[39m
+2022-11-09 04:19:19:1919 [35mhttp[39m: [35mGET /js/main.js 200 4682 - 4.797 ms[39m
+[35m[39m
+2022-11-09 04:19:19:1919 [35mhttp[39m: [35mGET /battle/dungeon 200 155 - 0.939 ms[39m
+[35m[39m
+2022-11-09 04:19:45:1945 [35mhttp[39m: [35mPOST /battle/dungeon/enter 404 160 - 2.205 ms[39m
+[35m[39m
+2022-11-09 04:25:37:2537 [35mhttp[39m: [35mGET /front 304 - - 2.326 ms[39m
+[35m[39m
+2022-11-09 04:25:43:2543 [35mhttp[39m: [35mPOST /user/signin 200 124 - 112.784 ms[39m
+[35m[39m
+2022-11-09 04:25:43:2543 [35mhttp[39m: [35mGET / 304 - - 1.761 ms[39m
+[35m[39m
+2022-11-09 04:25:43:2543 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 3.575 ms[39m
+[35m[39m
+2022-11-09 04:25:43:2543 [35mhttp[39m: [35mGET /js/main.js 200 5450 - 2.444 ms[39m
+[35m[39m
+2022-11-09 04:25:43:2543 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 1.073 ms[39m
+[35m[39m
+2022-11-09 04:34:03:343 [35mhttp[39m: [35mGET /front 304 - - 6.237 ms[39m
+[35m[39m
+2022-11-09 04:34:06:346 [35mhttp[39m: [35mPOST /user/signin 200 124 - 86.076 ms[39m
+[35m[39m
+2022-11-09 04:34:06:346 [35mhttp[39m: [35mGET / 304 - - 2.533 ms[39m
+[35m[39m
+2022-11-09 04:34:06:346 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 2.334 ms[39m
+[35m[39m
+2022-11-09 04:34:06:346 [35mhttp[39m: [35mGET /js/main.js 200 4909 - 3.083 ms[39m
+[35m[39m
+2022-11-09 04:34:07:347 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 1.097 ms[39m
+[35m[39m
+2022-11-09 04:35:29:3529 [35mhttp[39m: [35mGET /front 304 - - 7.195 ms[39m
+[35m[39m
+2022-11-09 04:35:35:3535 [35mhttp[39m: [35mPOST /user/signin 200 126 - 86.627 ms[39m
+[35m[39m
+2022-11-09 04:35:35:3535 [35mhttp[39m: [35mGET / 304 - - 1.935 ms[39m
+[35m[39m
+2022-11-09 04:35:35:3535 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 3.178 ms[39m
+[35m[39m
+2022-11-09 04:35:35:3535 [35mhttp[39m: [35mGET /js/main.js 304 - - 11.006 ms[39m
+[35m[39m
+2022-11-09 04:35:35:3535 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 1.473 ms[39m
+[35m[39m
+2022-11-09 04:38:08:388 [35mhttp[39m: [35mGET / 304 - - 5.910 ms[39m
+[35m[39m
+2022-11-09 04:38:08:388 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 1.213 ms[39m
+[35m[39m
+2022-11-09 04:38:08:388 [35mhttp[39m: [35mGET /js/main.js 200 4933 - 4.143 ms[39m
+[35m[39m
+2022-11-09 04:38:08:388 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 3.226 ms[39m
+[35m[39m
+2022-11-09 04:38:36:3836 [35mhttp[39m: [35mGET /front 304 - - 7.033 ms[39m
+[35m[39m
+2022-11-09 04:38:40:3840 [35mhttp[39m: [35mPOST /user/signin 200 126 - 94.774 ms[39m
+[35m[39m
+2022-11-09 04:38:40:3840 [35mhttp[39m: [35mGET / 304 - - 1.960 ms[39m
+[35m[39m
+2022-11-09 04:38:40:3840 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 3.873 ms[39m
+[35m[39m
+2022-11-09 04:38:40:3840 [35mhttp[39m: [35mGET /js/main.js 200 4933 - 9.188 ms[39m
+[35m[39m
+2022-11-09 04:38:40:3840 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 2.525 ms[39m
+[35m[39m
+2022-11-09 04:39:41:3941 [35mhttp[39m: [35mGET / 304 - - 5.067 ms[39m
+[35m[39m
+2022-11-09 04:39:41:3941 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 1.316 ms[39m
+[35m[39m
+2022-11-09 04:39:41:3941 [35mhttp[39m: [35mGET /js/main.js 304 - - 2.327 ms[39m
+[35m[39m
+2022-11-09 04:39:41:3941 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 2.018 ms[39m
+[35m[39m
+2022-11-09 04:40:12:4012 [35mhttp[39m: [35mGET /front 304 - - 9.515 ms[39m
+[35m[39m
+2022-11-09 04:40:15:4015 [35mhttp[39m: [35mPOST /user/signin 200 124 - 103.816 ms[39m
+[35m[39m
+2022-11-09 04:40:15:4015 [35mhttp[39m: [35mGET / 304 - - 3.208 ms[39m
+[35m[39m
+2022-11-09 04:40:15:4015 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 1.475 ms[39m
+[35m[39m
+2022-11-09 04:40:15:4015 [35mhttp[39m: [35mGET /js/main.js 304 - - 0.886 ms[39m
+[35m[39m
+2022-11-09 04:40:15:4015 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 1.545 ms[39m
+[35m[39m
+2022-11-09 04:41:07:417 [35mhttp[39m: [35mGET /front 304 - - 6.619 ms[39m
+[35m[39m
+2022-11-09 04:41:11:4111 [35mhttp[39m: [35mPOST /user/signin 200 124 - 89.375 ms[39m
+[35m[39m
+2022-11-09 04:41:11:4111 [35mhttp[39m: [35mGET / 304 - - 2.388 ms[39m
+[35m[39m
+2022-11-09 04:41:11:4111 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 2.728 ms[39m
+[35m[39m
+2022-11-09 04:41:11:4111 [35mhttp[39m: [35mGET /js/main.js 200 4944 - 6.834 ms[39m
+[35m[39m
+2022-11-09 04:41:11:4111 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 1.821 ms[39m
+[35m[39m
+2022-11-09 04:41:18:4118 [35mhttp[39m: [35mPOST /battle/dungeon/event 404 160 - 2.014 ms[39m
+[35m[39m
+2022-11-09 04:41:18:4118 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.838 ms[39m
+[35m[39m
+2022-11-09 04:41:21:4121 [35mhttp[39m: [35mPOST /battle/dungeon/event 404 160 - 1.374 ms[39m
+[35m[39m
+2022-11-09 04:41:21:4121 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.712 ms[39m
+[35m[39m
+2022-11-09 04:41:53:4153 [35mhttp[39m: [35mGET / 304 - - 1.819 ms[39m
+[35m[39m
+2022-11-09 04:41:53:4153 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 0.636 ms[39m
+[35m[39m
+2022-11-09 04:41:53:4153 [35mhttp[39m: [35mGET /js/main.js 200 4944 - 3.199 ms[39m
+[35m[39m
+2022-11-09 04:41:53:4153 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.892 ms[39m
+[35m[39m
+2022-11-09 04:41:55:4155 [35mhttp[39m: [35mPOST /battle/dungeon/event 404 160 - 1.410 ms[39m
+[35m[39m
+2022-11-09 04:41:55:4155 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.698 ms[39m
+[35m[39m
+2022-11-09 04:43:03:433 [35mhttp[39m: [35mGET / 304 - - 2.179 ms[39m
+[35m[39m
+2022-11-09 04:43:03:433 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 0.684 ms[39m
+[35m[39m
+2022-11-09 04:43:03:433 [35mhttp[39m: [35mGET /js/main.js 304 - - 0.422 ms[39m
+[35m[39m
+2022-11-09 04:43:04:434 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.809 ms[39m
+[35m[39m
+2022-11-09 04:43:12:4312 [35mhttp[39m: [35mPOST /battle/dungeon/event 404 160 - 0.525 ms[39m
+[35m[39m
+2022-11-09 04:43:12:4312 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.832 ms[39m
+[35m[39m
+2022-11-09 04:43:19:4319 [35mhttp[39m: [35mPOST /battle/dungeon/event 404 160 - 0.563 ms[39m
+[35m[39m
+2022-11-09 04:43:19:4319 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.800 ms[39m
+[35m[39m
+2022-11-09 04:43:30:4330 [35mhttp[39m: [35mPOST /battle/dungeon/event 404 160 - 0.461 ms[39m
+[35m[39m
+2022-11-09 04:43:30:4330 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 6.610 ms[39m
+[35m[39m
+2022-11-09 04:43:32:4332 [35mhttp[39m: [35mPOST /battle/dungeon/event 404 160 - 0.545 ms[39m
+[35m[39m
+2022-11-09 04:43:32:4332 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.580 ms[39m
+[35m[39m
+2022-11-09 04:43:56:4356 [35mhttp[39m: [35mGET / 304 - - 1.111 ms[39m
+[35m[39m
+2022-11-09 04:43:56:4356 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 0.318 ms[39m
+[35m[39m
+2022-11-09 04:43:56:4356 [35mhttp[39m: [35mGET /js/main.js 200 4967 - 2.130 ms[39m
+[35m[39m
+2022-11-09 04:43:56:4356 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.927 ms[39m
+[35m[39m
+2022-11-09 04:43:59:4359 [35mhttp[39m: [35mPOST /battle/dungeon/event 404 160 - 0.834 ms[39m
+[35m[39m
+2022-11-09 04:43:59:4359 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.949 ms[39m
+[35m[39m
+2022-11-09 04:46:19:4619 [35mhttp[39m: [35mGET / 304 - - 1.074 ms[39m
+[35m[39m
+2022-11-09 04:46:19:4619 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 0.750 ms[39m
+[35m[39m
+2022-11-09 04:46:19:4619 [35mhttp[39m: [35mGET /js/main.js 200 5000 - 2.538 ms[39m
+[35m[39m
+2022-11-09 04:46:19:4619 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 1.110 ms[39m
+[35m[39m
+2022-11-09 04:46:22:4622 [35mhttp[39m: [35mPOST /battle/dungeon/event 404 160 - 0.830 ms[39m
+[35m[39m
+2022-11-09 04:46:22:4622 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 2.510 ms[39m
+[35m[39m
+2022-11-09 04:48:00:480 [35mhttp[39m: [35mGET / 304 - - 1.371 ms[39m
+[35m[39m
+2022-11-09 04:48:00:480 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 0.356 ms[39m
+[35m[39m
+2022-11-09 04:48:00:480 [35mhttp[39m: [35mGET /js/main.js 200 4993 - 3.253 ms[39m
+[35m[39m
+2022-11-09 04:48:01:481 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 1.237 ms[39m
+[35m[39m
+2022-11-09 04:48:03:483 [35mhttp[39m: [35mPOST /battle/dungeon/event 404 160 - 1.060 ms[39m
+[35m[39m
+2022-11-09 04:48:03:483 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 4.027 ms[39m
+[35m[39m
+2022-11-09 04:48:13:4813 [35mhttp[39m: [35mPOST /battle/dungeon/enter 404 160 - 1.036 ms[39m
+[35m[39m
+2022-11-09 04:48:13:4813 [35mhttp[39m: [35mPOST /battle/dungeon/event 404 160 - 2.189 ms[39m
+[35m[39m
+2022-11-09 04:48:18:4818 [35mhttp[39m: [35mGET /front 304 - - 1.819 ms[39m
+[35m[39m
+2022-11-09 04:48:21:4821 [35mhttp[39m: [35mPOST /user/signin 200 124 - 89.773 ms[39m
+[35m[39m
+2022-11-09 04:48:21:4821 [35mhttp[39m: [35mGET / 304 - - 1.186 ms[39m
+[35m[39m
+2022-11-09 04:48:21:4821 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 1.063 ms[39m
+[35m[39m
+2022-11-09 04:48:21:4821 [35mhttp[39m: [35mGET /js/main.js 304 - - 0.572 ms[39m
+[35m[39m
+2022-11-09 04:48:22:4822 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.647 ms[39m
+[35m[39m
+2022-11-09 04:48:36:4836 [35mhttp[39m: [35mGET /frint 404 144 - 6.175 ms[39m
+[35m[39m
+2022-11-09 04:48:41:4841 [35mhttp[39m: [35mGET /front 200 5209 - 1.956 ms[39m
+[35m[39m
+2022-11-09 04:48:41:4841 [35mhttp[39m: [35mGET /favicon.ico 404 150 - 0.535 ms[39m
+[35m[39m
+2022-11-09 04:48:45:4845 [35mhttp[39m: [35mPOST /user/signin 200 126 - 89.609 ms[39m
+[35m[39m
+2022-11-09 04:48:45:4845 [35mhttp[39m: [35mGET / 200 4012 - 2.377 ms[39m
+[35m[39m
+2022-11-09 04:48:45:4845 [35mhttp[39m: [35mGET /stylesheets/main.css 200 4501 - 0.727 ms[39m
+[35m[39m
+2022-11-09 04:48:45:4845 [35mhttp[39m: [35mGET /js/main.js 200 4993 - 1.729 ms[39m
+[35m[39m
+2022-11-09 04:48:46:4846 [35mhttp[39m: [35mGET /battle/dungeon 200 155 - 0.507 ms[39m
+[35m[39m
+2022-11-09 04:48:58:4858 [35mhttp[39m: [35mPOST /battle/dungeon/enter 404 160 - 0.546 ms[39m
+[35m[39m
+2022-11-09 04:48:58:4858 [35mhttp[39m: [35mPOST /battle/dungeon/event 404 160 - 0.947 ms[39m
+[35m[39m
+2022-11-09 04:50:08:508 [35mhttp[39m: [35mGET / 304 - - 5.606 ms[39m
+[35m[39m
+2022-11-09 04:50:08:508 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 3.605 ms[39m
+[35m[39m
+2022-11-09 04:50:08:508 [35mhttp[39m: [35mGET /js/main.js 304 - - 0.535 ms[39m
+[35m[39m
+2022-11-09 04:50:08:508 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 4.248 ms[39m
+[35m[39m
+2022-11-09 04:50:11:5011 [35mhttp[39m: [35mPOST /battle/dungeon/event 500 110 - 21.600 ms[39m
+[35m[39m
+2022-11-09 04:50:11:5011 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 1.008 ms[39m
+[35m[39m
+2022-11-09 04:50:15:5015 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 2.127 ms[39m
+[35m[39m
+2022-11-09 04:50:15:5015 [35mhttp[39m: [35mPOST /battle/dungeon/event 302 43 - 1.257 ms[39m
+[35m[39m
+2022-11-09 04:50:15:5015 [35mhttp[39m: [35mGET /battle/dungeon/proceed 200 235 - 1.495 ms[39m
+[35m[39m
+2022-11-09 04:50:15:5015 [35mhttp[39m: [35mGET /battle/dungeon/fight 200 95 - 3.604 ms[39m
+[35m[39m
+2022-11-09 04:50:18:5018 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 0.979 ms[39m
+[35m[39m
+2022-11-09 04:50:18:5018 [35mhttp[39m: [35mPOST /battle/dungeon/event 302 43 - 1.219 ms[39m
+[35m[39m
+2022-11-09 04:50:18:5018 [35mhttp[39m: [35mGET /battle/dungeon/proceed 304 - - 0.702 ms[39m
+[35m[39m
+2022-11-09 04:50:18:5018 [35mhttp[39m: [35mGET /battle/dungeon/fight 200 94 - 2.579 ms[39m
+[35m[39m
+2022-11-09 04:50:23:5023 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 1.254 ms[39m
+[35m[39m
+2022-11-09 04:50:23:5023 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.844 ms[39m
+[35m[39m
+2022-11-09 04:50:23:5023 [35mhttp[39m: [35mGET /battle/dungeon/proceed 200 194 - 2.768 ms[39m
+[35m[39m
+2022-11-09 04:50:37:5037 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 1.056 ms[39m
+[35m[39m
+2022-11-09 04:50:37:5037 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.848 ms[39m
+[35m[39m
+2022-11-09 04:50:37:5037 [35mhttp[39m: [35mGET /battle/dungeon/proceed 304 - - 4.587 ms[39m
+[35m[39m
+2022-11-09 04:50:39:5039 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 0.661 ms[39m
+[35m[39m
+2022-11-09 04:50:39:5039 [35mhttp[39m: [35mPOST /battle/dungeon/event 302 43 - 1.063 ms[39m
+[35m[39m
+2022-11-09 04:50:39:5039 [35mhttp[39m: [35mGET /battle/dungeon/proceed 200 235 - 0.531 ms[39m
+[35m[39m
+2022-11-09 04:50:39:5039 [35mhttp[39m: [35mGET /battle/dungeon/fight 200 95 - 0.814 ms[39m
+[35m[39m
+2022-11-09 04:50:42:5042 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 0.720 ms[39m
+[35m[39m
+2022-11-09 04:50:42:5042 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.739 ms[39m
+[35m[39m
+2022-11-09 04:50:42:5042 [35mhttp[39m: [35mGET /battle/dungeon/proceed 200 194 - 0.662 ms[39m
+[35m[39m
+2022-11-09 04:53:00:530 [35mhttp[39m: [35mGET /front 304 - - 3.117 ms[39m
+[35m[39m
+2022-11-09 04:53:12:5312 [35mhttp[39m: [35mPOST /user/signin 200 126 - 90.406 ms[39m
+[35m[39m
+2022-11-09 04:53:12:5312 [35mhttp[39m: [35mGET / 304 - - 2.621 ms[39m
+[35m[39m
+2022-11-09 04:53:12:5312 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 0.690 ms[39m
+[35m[39m
+2022-11-09 04:53:12:5312 [35mhttp[39m: [35mGET /js/main.js 304 - - 0.580 ms[39m
+[35m[39m
+2022-11-09 04:53:12:5312 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 1.266 ms[39m
+[35m[39m
+2022-11-09 04:53:18:5318 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 1.699 ms[39m
+[35m[39m
+2022-11-09 04:53:18:5318 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 1.173 ms[39m
+[35m[39m
+2022-11-09 04:53:18:5318 [35mhttp[39m: [35mGET /battle/dungeon/proceed 304 - - 1.812 ms[39m
+[35m[39m
+2022-11-09 04:53:22:5322 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 0.725 ms[39m
+[35m[39m
+2022-11-09 04:53:22:5322 [35mhttp[39m: [35mPOST /battle/dungeon/event 302 43 - 1.251 ms[39m
+[35m[39m
+2022-11-09 04:53:22:5322 [35mhttp[39m: [35mGET /battle/dungeon/proceed 200 235 - 0.637 ms[39m
+[35m[39m
+2022-11-09 04:53:22:5322 [35mhttp[39m: [35mGET /battle/dungeon/fight 304 - - 0.832 ms[39m
+[35m[39m
+2022-11-09 04:53:26:5326 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 0.666 ms[39m
+[35m[39m
+2022-11-09 04:53:26:5326 [35mhttp[39m: [35mPOST /battle/dungeon/event 302 43 - 1.135 ms[39m
+[35m[39m
+2022-11-09 04:53:26:5326 [35mhttp[39m: [35mGET /battle/dungeon/proceed 304 - - 0.923 ms[39m
+[35m[39m
+2022-11-09 04:53:26:5326 [35mhttp[39m: [35mGET /battle/dungeon/fight 304 - - 2.163 ms[39m
+[35m[39m
+2022-11-09 04:53:28:5328 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 1.324 ms[39m
+[35m[39m
+2022-11-09 04:53:28:5328 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.524 ms[39m
+[35m[39m
+2022-11-09 04:53:28:5328 [35mhttp[39m: [35mGET /battle/dungeon/proceed 200 194 - 1.423 ms[39m
+[35m[39m
+2022-11-09 04:53:33:5333 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 0.512 ms[39m
+[35m[39m
+2022-11-09 04:53:33:5333 [35mhttp[39m: [35mPOST /battle/dungeon/event 302 43 - 1.576 ms[39m
+[35m[39m
+2022-11-09 04:53:33:5333 [35mhttp[39m: [35mGET /battle/dungeon/fight 304 - - 1.893 ms[39m
+[35m[39m
+2022-11-09 04:53:33:5333 [35mhttp[39m: [35mGET /battle/dungeon/proceed 200 235 - 3.613 ms[39m
+[35m[39m
+2022-11-09 04:53:37:5337 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 0.962 ms[39m
+[35m[39m
+2022-11-09 04:53:37:5337 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.520 ms[39m
+[35m[39m
+2022-11-09 04:53:37:5337 [35mhttp[39m: [35mGET /battle/dungeon/proceed 200 194 - 0.626 ms[39m
+[35m[39m
+2022-11-09 04:53:39:5339 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 0.496 ms[39m
+[35m[39m
+2022-11-09 04:53:39:5339 [35mhttp[39m: [35mPOST /battle/dungeon/event 302 43 - 1.276 ms[39m
+[35m[39m
+2022-11-09 04:53:39:5339 [35mhttp[39m: [35mGET /battle/dungeon/proceed 200 235 - 0.434 ms[39m
+[35m[39m
+2022-11-09 04:53:39:5339 [35mhttp[39m: [35mGET /battle/dungeon/fight 200 94 - 1.630 ms[39m
+[35m[39m
+2022-11-09 04:53:40:5340 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 0.423 ms[39m
+[35m[39m
+2022-11-09 04:53:40:5340 [35mhttp[39m: [35mPOST /battle/dungeon/event 302 43 - 1.030 ms[39m
+[35m[39m
+2022-11-09 04:53:40:5340 [35mhttp[39m: [35mGET /battle/dungeon/proceed 304 - - 0.508 ms[39m
+[35m[39m
+2022-11-09 04:53:40:5340 [35mhttp[39m: [35mGET /battle/dungeon/fight 200 95 - 1.394 ms[39m
+[35m[39m
+2022-11-09 04:54:34:5434 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 0.779 ms[39m
+[35m[39m
+2022-11-09 04:54:34:5434 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.589 ms[39m
+[35m[39m
+2022-11-09 04:54:34:5434 [35mhttp[39m: [35mGET /battle/dungeon/proceed 200 194 - 0.684 ms[39m
+[35m[39m
+2022-11-09 04:54:40:5440 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 0.435 ms[39m
+[35m[39m
+2022-11-09 04:54:40:5440 [35mhttp[39m: [35mPOST /battle/dungeon/event 302 43 - 1.156 ms[39m
+[35m[39m
+2022-11-09 04:54:40:5440 [35mhttp[39m: [35mGET /battle/dungeon/proceed 200 235 - 0.483 ms[39m
+[35m[39m
+2022-11-09 04:54:40:5440 [35mhttp[39m: [35mGET /battle/dungeon/fight 304 - - 2.235 ms[39m
+[35m[39m
+2022-11-09 04:54:42:5442 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 0.802 ms[39m
+[35m[39m
+2022-11-09 04:54:42:5442 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.601 ms[39m
+[35m[39m
+2022-11-09 04:54:42:5442 [35mhttp[39m: [35mGET /battle/dungeon/proceed 200 194 - 1.355 ms[39m
+[35m[39m
+2022-11-09 04:55:18:5518 [35mhttp[39m: [35mGET / 304 - - 2.020 ms[39m
+[35m[39m
+2022-11-09 04:55:18:5518 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 0.706 ms[39m
+[35m[39m
+2022-11-09 04:55:18:5518 [35mhttp[39m: [35mGET /js/main.js 200 4990 - 3.337 ms[39m
+[35m[39m
+2022-11-09 04:55:18:5518 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.464 ms[39m
+[35m[39m
+2022-11-09 04:55:20:5520 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 0.640 ms[39m
+[35m[39m
+2022-11-09 04:55:20:5520 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 1.174 ms[39m
+[35m[39m
+2022-11-09 04:55:20:5520 [35mhttp[39m: [35mGET /battle/dungeon/proceed 304 - - 2.244 ms[39m
+[35m[39m
+2022-11-09 04:55:26:5526 [35mhttp[39m: [35mPOST /battle/dungeon/event 302 43 - 0.995 ms[39m
+[35m[39m
+2022-11-09 04:55:26:5526 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 1.053 ms[39m
+[35m[39m
+2022-11-09 04:55:26:5526 [35mhttp[39m: [35mGET /battle/dungeon/fight 200 95 - 0.643 ms[39m
+[35m[39m
+2022-11-09 04:55:28:5528 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 0.474 ms[39m
+[35m[39m
+2022-11-09 04:55:28:5528 [35mhttp[39m: [35mPOST /battle/dungeon/event 302 43 - 0.910 ms[39m
+[35m[39m
+2022-11-09 04:55:28:5528 [35mhttp[39m: [35mGET /battle/dungeon/proceed 200 235 - 0.897 ms[39m
+[35m[39m
+2022-11-09 04:55:28:5528 [35mhttp[39m: [35mGET /battle/dungeon/fight 200 95 - 1.780 ms[39m
+[35m[39m
+2022-11-09 04:55:29:5529 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 1.837 ms[39m
+[35m[39m
+2022-11-09 04:55:29:5529 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.441 ms[39m
+[35m[39m
+2022-11-09 04:55:29:5529 [35mhttp[39m: [35mGET /battle/dungeon/proceed 200 194 - 1.658 ms[39m
+[35m[39m
+2022-11-09 04:55:30:5530 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 0.649 ms[39m
+[35m[39m
+2022-11-09 04:55:30:5530 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.455 ms[39m
+[35m[39m
+2022-11-09 04:55:30:5530 [35mhttp[39m: [35mGET /battle/dungeon/proceed 304 - - 1.527 ms[39m
+[35m[39m
+2022-11-09 04:55:31:5531 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 0.570 ms[39m
+[35m[39m
+2022-11-09 04:55:31:5531 [35mhttp[39m: [35mPOST /battle/dungeon/event 302 43 - 0.898 ms[39m
+[35m[39m
+2022-11-09 04:55:31:5531 [35mhttp[39m: [35mGET /battle/dungeon/proceed 200 235 - 0.964 ms[39m
+[35m[39m
+2022-11-09 04:55:31:5531 [35mhttp[39m: [35mGET /battle/dungeon/fight 304 - - 2.117 ms[39m
+[35m[39m
+2022-11-09 04:55:32:5532 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 0.672 ms[39m
+[35m[39m
+2022-11-09 04:55:32:5532 [35mhttp[39m: [35mPOST /battle/dungeon/event 302 43 - 1.890 ms[39m
+[35m[39m
+2022-11-09 04:55:32:5532 [35mhttp[39m: [35mGET /battle/dungeon/proceed 304 - - 0.476 ms[39m
+[35m[39m
+2022-11-09 04:55:32:5532 [35mhttp[39m: [35mGET /battle/dungeon/fight 304 - - 1.389 ms[39m
+[35m[39m
+2022-11-09 04:55:38:5538 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 0.546 ms[39m
+[35m[39m
+2022-11-09 04:55:38:5538 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.688 ms[39m
+[35m[39m
+2022-11-09 04:55:38:5538 [35mhttp[39m: [35mGET /battle/dungeon/proceed 200 194 - 3.983 ms[39m
+[35m[39m
+2022-11-09 04:55:40:5540 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 0.482 ms[39m
+[35m[39m
+2022-11-09 04:55:40:5540 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.598 ms[39m
+[35m[39m
+2022-11-09 04:55:40:5540 [35mhttp[39m: [35mGET /battle/dungeon/proceed 304 - - 1.667 ms[39m
+[35m[39m
+2022-11-09 04:55:41:5541 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 0.641 ms[39m
+[35m[39m
+2022-11-09 04:55:41:5541 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.462 ms[39m
+[35m[39m
+2022-11-09 04:55:41:5541 [35mhttp[39m: [35mGET /battle/dungeon/proceed 304 - - 1.806 ms[39m
+[35m[39m
+2022-11-09 04:56:12:5612 [35mhttp[39m: [35mGET / 304 - - 1.599 ms[39m
+[35m[39m
+2022-11-09 04:56:12:5612 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 0.545 ms[39m
+[35m[39m
+2022-11-09 04:56:12:5612 [35mhttp[39m: [35mGET /js/main.js 200 5036 - 3.912 ms[39m
+[35m[39m
+2022-11-09 04:56:12:5612 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.798 ms[39m
+[35m[39m
+2022-11-09 04:56:14:5614 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 0.772 ms[39m
+[35m[39m
+2022-11-09 04:56:14:5614 [35mhttp[39m: [35mPOST /battle/dungeon/event 302 43 - 0.936 ms[39m
+[35m[39m
+2022-11-09 04:56:14:5614 [35mhttp[39m: [35mGET /battle/dungeon/proceed 200 235 - 0.943 ms[39m
+[35m[39m
+2022-11-09 04:56:14:5614 [35mhttp[39m: [35mGET /battle/dungeon/fight 304 - - 0.580 ms[39m
+[35m[39m
+2022-11-09 04:56:16:5616 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 0.461 ms[39m
+[35m[39m
+2022-11-09 04:56:16:5616 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.684 ms[39m
+[35m[39m
+2022-11-09 04:56:16:5616 [35mhttp[39m: [35mGET /battle/dungeon/proceed 200 194 - 1.691 ms[39m
+[35m[39m
+2022-11-09 04:56:40:5640 [35mhttp[39m: [35mGET / 304 - - 1.789 ms[39m
+[35m[39m
+2022-11-09 04:56:40:5640 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 2.954 ms[39m
+[35m[39m
+2022-11-09 04:56:40:5640 [35mhttp[39m: [35mGET /js/main.js 200 5053 - 3.564 ms[39m
+[35m[39m
+2022-11-09 04:56:40:5640 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 1.684 ms[39m
+[35m[39m
+2022-11-09 04:56:42:5642 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 0.403 ms[39m
+[35m[39m
+2022-11-09 04:56:42:5642 [35mhttp[39m: [35mPOST /battle/dungeon/event 302 43 - 1.776 ms[39m
+[35m[39m
+2022-11-09 04:56:42:5642 [35mhttp[39m: [35mGET /battle/dungeon/proceed 200 235 - 0.609 ms[39m
+[35m[39m
+2022-11-09 04:56:42:5642 [35mhttp[39m: [35mGET /battle/dungeon/fight 304 - - 0.997 ms[39m
+[35m[39m
+2022-11-09 04:56:43:5643 [35mhttp[39m: [35mPOST /battle/dungeon/enter 302 45 - 0.552 ms[39m
+[35m[39m
+2022-11-09 04:56:43:5643 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.441 ms[39m
+[35m[39m
+2022-11-09 04:56:43:5643 [35mhttp[39m: [35mGET /battle/dungeon/proceed 200 194 - 1.536 ms[39m
+[35m[39m
+2022-11-09 04:59:41:5941 [35mhttp[39m: [35mGET / 200 4039 - 1.312 ms[39m
+[35m[39m
+2022-11-09 04:59:41:5941 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 1.317 ms[39m
+[35m[39m
+2022-11-09 04:59:41:5941 [35mhttp[39m: [35mGET /js/main.js 200 4994 - 2.755 ms[39m
+[35m[39m
+2022-11-09 04:59:41:5941 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.519 ms[39m
+[35m[39m
+2022-11-09 04:59:44:5944 [35mhttp[39m: [35mGET / 304 - - 1.113 ms[39m
+[35m[39m
+2022-11-09 04:59:44:5944 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 1.238 ms[39m
+[35m[39m
+2022-11-09 04:59:44:5944 [35mhttp[39m: [35mGET /js/main.js 304 - - 1.499 ms[39m
+[35m[39m
+2022-11-09 04:59:44:5944 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.628 ms[39m
+[35m[39m
+2022-11-09 04:59:48:5948 [35mhttp[39m: [35mPOST /battle/dungeon/event 302 43 - 1.488 ms[39m
+[35m[39m
+2022-11-09 04:59:48:5948 [35mhttp[39m: [35mGET /? 200 4039 - 1.650 ms[39m
+[35m[39m
+2022-11-09 04:59:48:5948 [35mhttp[39m: [35mGET /battle/dungeon/fight 200 95 - 3.294 ms[39m
+[35m[39m
+2022-11-09 04:59:48:5948 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 2.333 ms[39m
+[35m[39m
+2022-11-09 04:59:48:5948 [35mhttp[39m: [35mGET /js/main.js 304 - - 0.443 ms[39m
+[35m[39m
+2022-11-09 04:59:48:5948 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.754 ms[39m
+[35m[39m
+2022-11-09 04:59:50:5950 [35mhttp[39m: [35mPOST /battle/dungeon/event 302 43 - 1.055 ms[39m
+[35m[39m
+2022-11-09 04:59:50:5950 [35mhttp[39m: [35mGET /? 304 - - 1.623 ms[39m
+[35m[39m
+2022-11-09 04:59:50:5950 [35mhttp[39m: [35mGET /battle/dungeon/fight 304 - - 3.129 ms[39m
+[35m[39m
+2022-11-09 04:59:50:5950 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 0.434 ms[39m
+[35m[39m
+2022-11-09 04:59:50:5950 [35mhttp[39m: [35mGET /js/main.js 304 - - 1.561 ms[39m
+[35m[39m
+2022-11-09 04:59:50:5950 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 1.024 ms[39m
+[35m[39m
+2022-11-09 05:00:11:011 [35mhttp[39m: [35mGET /? 304 - - 1.472 ms[39m
+[35m[39m
+2022-11-09 05:00:11:011 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 3.682 ms[39m
+[35m[39m
+2022-11-09 05:00:11:011 [35mhttp[39m: [35mGET /js/main.js 200 4993 - 5.769 ms[39m
+[35m[39m
+2022-11-09 05:00:11:011 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 1.286 ms[39m
+[35m[39m
+2022-11-09 05:00:14:014 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.725 ms[39m
+[35m[39m
+2022-11-09 05:00:14:014 [35mhttp[39m: [35mGET /? 304 - - 2.601 ms[39m
+[35m[39m
+2022-11-09 05:00:14:014 [35mhttp[39m: [35mGET /stylesheets/main.css 304 - - 0.477 ms[39m
+[35m[39m
+2022-11-09 05:00:14:014 [35mhttp[39m: [35mGET /js/main.js 304 - - 1.619 ms[39m
+[35m[39m
+2022-11-09 05:00:14:014 [35mhttp[39m: [35mGET /battle/dungeon 304 - - 0.440 ms[39m
+[35m[39m

@@ -31,10 +31,6 @@ if (env.NODE_ENV !== 'test') {
     });    
 }
 
-let corsOptions = {
-    origin: 'http://localhost:3000',
-    credentials: true,
-  };
 
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html', ejs.renderFile);
@@ -45,7 +41,11 @@ app.use(morgan.middleware);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 app.use(express.json());
-app.use(cors(corsOptions))
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true,
+}));
+
 
 app.use(Router);
 
