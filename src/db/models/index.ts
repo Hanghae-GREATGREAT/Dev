@@ -1,4 +1,3 @@
-import sequelize from "../config/connection";
 // import Skills from "./skill";
 import Items from './item'
 // import Inventories from './inventories'

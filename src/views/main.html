@@ -11,9 +11,8 @@
             rel="stylesheet"
         />
         <title>GREAT-GREAT!!</title>
-        <!-- <link rel="stylesheet" href="./main.css" />
-         -->
-         <link rel="stylesheet" type="text/css" href="main.css">
+        <link rel="stylesheet" href="/stylesheets/main.css" />
+
     </head>
     <body>
         <div class="container">
@@ -89,26 +88,6 @@
             </div>
         </div>
 
-        <!-- <script src="main.js"></script> -->
-        <script>
-            const commendForm = document.querySelector('.commendInput');
-            commendForm.addEventListener('submit',a)
- 
-           async function a(e){
-             e.preventDefault()
-            const commendInput = document.getElementById('commendInput');
-            const npcId ={npcId:+commendInput.value}
-            const {data} = await axios.post('http://localhost:3001/items',npcId)
-            console.log(data.data)
-            }
-
-            const item =[];
-           const items = async ()=>{
-               const {data} = await axios.get('http://localhost:3001/items')
-               console.log(data)
-               item.push(data.data)
-            }
-            console.log(item)
-        </script>
+        <script src="/js/main.js"></script>
     </body>
 </html>
