@@ -4,6 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <link
             href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap"
             rel="stylesheet"
@@ -42,12 +43,13 @@
             129 만큼의 기를 흡수합니다.
         </span>
                     </section>
-                    <section class="commendInput">
+                    <form class="commendInput">
                         <input
+                        name="commendInput"
                             type="text"
                             placeholder="커맨드를 입력해주세요."
-                        /><button type="button">전송</button>
-                    </section>
+                        /><button>전송</button>
+                    </form>
                 </div>
 
                 <div class="chatingWindow">
@@ -74,12 +76,13 @@
                         <span>김정현 : 치...</span>
                         <span>김정현 : 영...</span>
                     </section>
-                    <section class="chatingInput">
+                    <form class="chatingInput">
                         <input
+                            id="chatingInput"
                             type="text"
                             placeholder="채팅를 입력해주세요."
                         /><button type="button">전송</button>
-                    </section>
+                    </form>
                 </div>
             </div>
         </div>
