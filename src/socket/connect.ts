@@ -10,10 +10,10 @@ const onConnection = (socket: Socket) => {
     console.log('SOCKET CONNECTED');
 
     socket.on('info', ({ name }: UserSession)=>{
-        CharacterService.findOneByName(name).then((user)=>{
-            if (user === null) throw new Error();
+        CharacterService.findOneByName(name).then((character)=>{
+            if (character === null) throw new Error();
 
-            const script = `${user.Field.name} 채팅방에 입장하였습니다.\n`
+            const script = `${character.Field.name} 채팅방에 입장하였습니다.\n`
             socket.emit('print', { script });
         });
         redis.set(socket.id, name, { EX: 60*5 });
