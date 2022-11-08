@@ -4,7 +4,9 @@
 const chatSubmitId = $('#chatSubmit');
 const chatBoxId = $('#chatBox');
 const userInfo = $('#userInfo');
+
 const commandLine = $('.commendLine');
+const commendInput = $('#commendInput')
 
 
 
@@ -67,95 +69,18 @@ async function dungeon() {
 }
 
 
-const commandHandler = () => {
-console.log('handler');
+const commendForm = document.querySelector('.commendInput');
+commendForm.addEventListener('submit', commandHandler);
+
+function commandHandler(e) {
     const commandEventFn = {
-        'dungeon': enter(),
-        'enter': event(),
+        'dungeon': enter,
+        'enter': event,
     }
 
     const battle = localStorage.getItem('battle');
-    commandEventFn[battle];
+    commandEventFn[battle](e);
 }
-
-
-// const commendInput = $('#')
-const commandInputHandler = () => {
-    const commandEventFn = {
-        'dungeon': enter2(),
-        'enter': event2(),
-    }
-
-    const battle = localStorage.getItem('battle');
-    commandEventFn[battle];
-}
-async function enter() {
-    try { console.log(111111);
-        e.preventDefault();
-        commandLine.empty();
-
-
-        if (commendInput.value > 5) {
-            await dungeon();
-            commandLine.append(`\n\n없는 던전입니다.`);
-            document.getElementById('commendInput').value = null;
-            return;
-        }
-
-        if (!commendInput.value) {
-            await dungeon();
-            commandLine.append(`\n\n던전을 선택해주세요.`);
-            return;
-        }
-
-        const input = { input: commendInput.value };
-        const { data } = await axios.post('http://localhost:8080/battle/dungeon/enter', input)
-        console.log(data);
-
-        const name = data.dungeonName;
-        const op = data.opsions;
-        const lev = data.recommendLevel;
-        const script = data.script;
-        const commend = `<span>${name}\n추천레벨 : ${lev}\n${script}\n\n${op}</span>`;
-        commandLine.append(commend);
-        document.getElementById('commendInput').value = null;
-        localStorage.setItem('battle', 'enter');
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-
-async function event(e) {
-    try {console.log('enter');
-        e.preventDefault();
-        commandLine.empty();
-
-        if (commendInput.value == 2) {
-            await dungeon();
-            document.getElementById('commendInput').value = null;
-            return;
-        }
-
-        const input = { input: commendInput.value };
-        const { data } = await axios.post('http://localhost:8080/battle/dungeon/event', input);
-        console.log(data);
-
-        const msg = data.msg;
-        const fight = `<span>${msg}</span>`;
-        commandLine.append(fight);
-        document.getElementById('commendInput').value = null;
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-
-
-
-// const commendForm = document.querySelector('.commendInput');
-const commendInput = document.getElementById('commendInput');
-// commendForm.addEventListener('submit', commandHandler);
 
 
 async function enter(e) {
@@ -163,22 +88,21 @@ async function enter(e) {
         e.preventDefault();
         commandLine.empty();
 
-
-        if (commendInput.value > 5) {
+        const input = commendInput.val();
+        if (input > 5) {
             await dungeon();
             commandLine.append(`\n\n없는 던전입니다.`);
-            document.getElementById('commendInput').value = null;
+            commendInput.val('');
             return;
         }
 
-        if (!commendInput.value) {
+        if (!input) {
             await dungeon();
             commandLine.append(`\n\n던전을 선택해주세요.`);
             return;
         }
 
-        const input = { input: commendInput.value };
-        const { data } = await axios.post('http://localhost:8080/battle/dungeon/enter', input)
+        const { data } = await axios.post('http://localhost:8080/battle/dungeon/enter', { input })
         console.log(data);
 
         const name = data.dungeonName;
@@ -187,7 +111,7 @@ async function enter(e) {
         const script = data.script;
         const commend = `<span>${name}\n추천레벨 : ${lev}\n${script}\n\n${op}</span>`;
         commandLine.append(commend);
-        document.getElementById('commendInput').value = null;
+        commendInput.val('');
         localStorage.setItem('battle', 'enter');
     } catch (error) {
         console.log(error);
@@ -200,20 +124,20 @@ async function event(e) {
         e.preventDefault();
         commandLine.empty();
 
-        if (commendInput.value == 2) {
+        const input = commendInput.val();
+        if (input == 2) {
             await dungeon();
-            document.getElementById('commendInput').value = null;
+            commendInput.val('');
             return;
         }
 
-        const input = { input: commendInput.value };
-        const { data } = await axios.post('http://localhost:8080/battle/dungeon/event', input);
+        const { data } = await axios.post('http://localhost:8080/battle/dungeon/event', { input });
         console.log(data);
 
         const msg = data.msg;
         const fight = `<span>${msg}</span>`;
         commandLine.append(fight);
-        document.getElementById('commendInput').value = null;
+        commendInput.val('');
     } catch (error) {
         console.log(error);
     }
