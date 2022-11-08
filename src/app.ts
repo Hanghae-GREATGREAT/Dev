@@ -10,6 +10,7 @@ import ejs from 'ejs';
 import sequelize from './db/config/connection';
 import association from './db/config/associate';
 import cookieParser from 'cookie-parser';
+import cors from 'cors'
 
 import Router from './routes';
 import error from './middlewares/errorhandlers';
@@ -29,6 +30,11 @@ if (env.NODE_ENV !== 'test') {
     });    
 }
 
+let corsOptions = {
+    origin: 'http://localhost:3000',
+    credentials: true,
+  };
+
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html', ejs.renderFile);
 app.set('view engine', 'ejs');
@@ -38,6 +44,7 @@ app.use(morgan.middleware);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 app.use(express.json());
+app.use(cors(corsOptions))
 
 app.use(Router);
 
