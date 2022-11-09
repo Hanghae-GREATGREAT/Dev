@@ -34,7 +34,7 @@ jobs:
       
     - name: run test
       env:
-        PORT: 3333
+        PORT: 8080
         TEST_HOST: ${{ secrets.TEST_HOST }}
         TEST_NAME: ${{ secrets.TEST_NAME }}
         TEST_USER: ${{ secrets.TEST_USER }}
@@ -43,4 +43,7 @@ jobs:
         REDIS_USER: ${{ secrets.REDIS_USER }}
         REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
 
-      run: npm test
+      run: | 
+        echo ${{ secrets.TEST_USER }}
+        echo $TEST_NAME
+        npm test
