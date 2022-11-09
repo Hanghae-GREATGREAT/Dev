@@ -1,24 +1,21 @@
 import BattleService from './battle.service';
 import { NextFunction, request, Request, Response } from 'express';
-import { InputForm } from '../interfaces/dungeon';
+import { dungeonInfoForm, InputForm } from '../interfaces/dungeon';
 import MonsterService from '../monster/monster.service';
 import { HttpException, HttpStatus } from '../common';
-import { number } from 'joi';
-import battleService from './battle.service';
 
 export default {
     test: async (req: Request, res: Response, next: NextFunction) => {
         try {
-            const { user } = await req.app.locals;
+            const { user } = req.app.locals;
 
             /**
              * userId : 101,
              * characterId : 100,
-             * questId : 1,
-             * inventory : '',
              */
+            console.log(typeof user);
 
-            res.status(200).json(user);
+            res.status(200).send(user);
         } catch (error) {
             next(error);
         }
@@ -27,8 +24,9 @@ export default {
     /** 던전 리스트 요청 */
     getDungeonList: async (req: Request, res: Response, next: NextFunction) => {
         try {
+            // 던전 리스트 스크립트 불러오기
             const result = await BattleService.getDungeonList();
-
+            // 스크립트 반환
             res.status(200).send(result);
         } catch (error) {
             next(error);
@@ -40,20 +38,37 @@ export default {
         try {
             // 사용자 던전 선택값
             const { input }: InputForm = req.body;
+            // 사용자 정보 불러오기
+            const { characterId } = req.app.locals.user;
 
-            // 돌아가기
-            if (input === 6) res.redirect('/battle/dungeon');
+            // 사용자가 선택한 던전의 상세정보 불러오기
+            const dungeonIndex: number = input - 1;
+            const dungeonInfo: dungeonInfoForm =
+                await BattleService.dungeonInfo(dungeonIndex);
 
-            // 던전 진행정보 locals.dungeonStatus 생성
-            const dungeonIndex = input - 1;
-            const dungeonStatus = {
-                dungeonIndex,
+            // 던전 정보 스크립트 작성
+            const dongeonInfoScript = `${dungeonInfo.name}(${dungeonInfo.recommendLevel})\n\n${dungeonInfo.script}`;
+            // 선택지 스크립트 작성
+            const options = '1. 진행하기\n2. 자동 진행\n3. 돌아가기\n';
+
+            // 결과 스크립트 작성
+            const result = {
+                script: dongeonInfoScript,
+                opsions: options,
             };
 
-            req.app.locals.dungeonStatus = dungeonStatus;
+            // 던전 진행정보 생성
+            const dungeonLevel = input;
+            const data = {
+                dungeonLevel,
+                characterId: 101,
+                monsterId: 0,
+            };
+            // 진행상황 저장
+            req.app.locals.dungeonStatus = data;
 
-            // 선택한 던전으로 리다이렉션
-            res.status(200).redirect('/battle/dungeon/proceed');
+            // 스크립트 반환
+            res.status(200).json(result);
         } catch (error) {
             next(error);
         }
@@ -62,47 +77,38 @@ export default {
     /** 던전 진행 */
     dungeonProceed: async (req: Request, res: Response, next: NextFunction) => {
         try {
-            const { dungeonIndex } = req.app.locals.dungeonStatus;
+            // 진행정보 불러오기
+            const { dungeonStatus } = req.app.locals;
 
-            const dungeonInfo = await BattleService.selectedDungeonInfo(
-                dungeonIndex,
-            );
+            const monsterId = dungeonStatus.monsterId;
+            let monsterScript = '';
+            if (monsterId === 0) {
+                // fieldId 불러오기
+                const fieldId = dungeonStatus.dungeonLevel;
+                // 몬스터 생성
+                const monster = await MonsterService.createMonster(fieldId);
+                console.log('생성 monster : ', monster.monsterId);
 
-            const script = `${dungeonInfo.name}(${dungeonInfo.recommendLevel})\n\n${dungeonInfo.script}`;
+                // 던전 진행상황에 생성된 몬스터 등록
+                req.app.locals.dungeonStatus.monsterId = monster.monsterId;
+                // 몬스터 스크립트
+                monsterScript = `${monster.name}이(가) 나타났다!`;
+            } else {
+                // 기존 전투가 진행중이라면 기존 몬스터 정보 불러오기
+                const { monsterId } = req.app.locals.dungeonStatus;
+                console.log('기존 몬스터 : ', monsterId);
+                const monster: any = await MonsterService.findMonsterById(
+                    monsterId,
+                );
+                monsterScript = `${monster.name}이(가) 분노한다!`;
+            }
 
-            // 던전 진행정보 가공해서 뿌려주기
-            const result = {
-                script,
-                opsions: '1. 진행하기\n2. 자동 진행\n3. 돌아가기\n',
+            const resultScript = {
+                script: monsterScript,
+                opsions: '1. 공격 한다\n2. 스킬1\n3. 스킬2\n4. 도망간다',
             };
 
-            res.status(200).json(result);
-        } catch (error) {
-            next(error);
-        }
-    },
-
-    /**진행하기 선택에 따른 이벤트 발생 */
-    event: async (req: Request, res: Response, next: NextFunction) => {
-        try {
-            const { dungeonIndex } = req.app.locals.dungeonStatus;
-            const { input }: InputForm = req.body;
-
-            // 자동진행 선택시 리다이렉션
-            if (input === 2) res.redirect('/battle/dungeon/auto');
-            // 돌아가기 선택시 리다이렉션
-            if (input === 3) res.redirect('/battle/dungeon');
-
-            // 던전 진행상황 갱신
-            const dungeonStatus = {
-                dungeonIndex,
-                userStatus: null,
-                monsterStatus: false,
-            };
-            req.app.locals.dungeonStatus = dungeonStatus;
-
-            // 전투 스테이지 리다이렉션
-            return res.status(200).redirect('/battle/dungeon/fight');
+            res.status(200).json(resultScript);
         } catch (error) {
             next(error);
         }
@@ -111,44 +117,64 @@ export default {
     /** 전투 스테이지 진행 */
     fight: async (req: Request, res: Response, next: NextFunction) => {
         try {
-            // 유저(캐릭터) 정보 불러오기
-            const { user } = req.app.locals;
-            const characterId: number = user.characterId;
-            const characterStatus = await BattileService.getCharacterStatus(
-                characterId,
-            );
+            // 유저 선택지 (일반 공격 or 스킬 공격)
+            const { input } = req.body;
             // 던전 진행상황 불러오기
-            const dungeonStatus = req.app.locals.dungeonStatus;
+            const { characterId, monsterId } = req.app.locals.dungeonStatus;
 
-            // 전투 상황 파악(기존 몬스터 존재 여부)
-            let monsterScript = '';
-            const { monsterStatus } = await req.app.locals.dungeonStatus;
-            if (!monsterStatus.monsterId) {
-                // fieldId 불러오기
-                const fieldId = dungeonStatus.dungeonIndex + 1;
-                // 몬스터 생성
-                const monster = await MonsterService.inputMonsters(fieldId);
-                console.log('2. monster : ', monster);
+            // 캐릭터 스테이터스
+            const character = await BattleService.getCharacter(characterId);
+            let playerHP = character!.hp;
+            let playerMP = character!.mp;
+            const playerAttack = character!.attack;
+            const playerDefence = character!.defense;
+            // 몬스터 스테이터스
+            const monster = await BattleService.getMonster(monsterId);
+            let monsterHP = monster!.hp;
+            const monsterAttack = monster!.attack;
+            const monsterDefence = monster!.defense;
 
-                // 던전 진행상황에 생성된 몬스터 등록
-                req.app.locals.dungeonStatus.monsterStatus = monster;
-                // 몬스터 스크립트
-                monsterScript = `${monster.name}이(가) 나타났다!`;
+            // 전투 턴 스크립트 선언
+            let turnScript = [];
+
+            // 유저 턴 로직
+            if (input === 1) {
+                // 일반 공격 로직
+                const hitStrength = Math.floor(Math.random() * 40) + 80; // 80 ~ 120
+                const damage = Math.floor((playerAttack * hitStrength) / 100);
+
+                const userActionScript = `당신의 공격으로 ${
+                    monster!.name
+                }에게 ${damage}의 피해를 입혔다.`;
+
+                monsterHP -= damage;
+                turnScript.push(userActionScript);
             } else {
-                // 기존 전투가 진행중이라면 기존 몬스터 정보 불러오기
-                const { monsterId } =
-                    req.app.locals.dungeonStatus.monsterStatus;
-                console.log(monsterId);
-                const monster: any = await MonsterService.findMonsterById(
-                    monsterId,
-                );
-                monsterScript = `${monster.name}이(가) 분노한다!`;
+                // 스킬 공격 로직
+
+                const userActionScript = `당신의 (유저스킬N.name)공격으로 (몬스터.name)에게 00의 피해를 입혔다.`;
+                turnScript.push(userActionScript);
             }
 
-            // console.log(
-            //     '2. monsterStatus : ',
-            //     await req.app.locals.dungeonStatus.monsterStatus,
-            // );
+            // 몬스터 턴 로직
+            if (monsterHP > 0) {
+                const hitStrength = Math.floor(Math.random() * 40) + 80; // 80 ~ 120
+                const damage = Math.floor((monsterAttack * hitStrength) / 100);
+
+                const monsterActionScript = `${
+                    monster!.name
+                }의 공격은 당신에게 ${damage}의 피해를 입혔다.`;
+                turnScript.push(monsterActionScript);
+            } else {
+                // 몬스터 사망
+            }
+
+            // 유저 사망여부 판단
+            if (playerHP > 0) {
+            }
+            // 전투 스크립트
+            // 전투결과 스크립트
+            // 몬스터 스크립트
 
             // 유저 선택지 생성
             const options = '1. 공격 한다\n2. 스킬1\n3. 스킬2\n4. 도망간다';
@@ -156,7 +182,7 @@ export default {
             // 던전 진행상황 업데이트
 
             // 결과 스크립트 생성
-            const resultScript = { script: monsterScript, options: options };
+            const resultScript = { script: turnScript, options: options };
 
             res.status(200).json(resultScript);
         } catch (error) {
@@ -164,15 +190,15 @@ export default {
         }
     },
 
-    /** 전투 선택지 결과 및 진행 */
-    fightAction: async (req: Request, res: Response, next: NextFunction) => {
+    /** 전투 선택지 결과*/
+    fightResult: async (req: Request, res: Response, next: NextFunction) => {
         try {
             // 선택지 파악
             const { input } = req.body;
             // 유저 데이터 파악
             const { user } = req.app.locals;
             const characterId: number = user.characterId;
-            const characterStatus = await BattileService.getCharacterStatus(
+            const characterStatus = await BattleService.getCharacter(
                 characterId,
             );
             // 몬스터 데이터 파악
