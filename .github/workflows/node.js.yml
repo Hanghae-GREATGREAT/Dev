@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [16.x, 18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -34,13 +34,12 @@ jobs:
       
     - name: run test
       env:
-          PORT: 3333
-          TEST_HOST: ${{ secrets.TEST_HOST }}
-          TEST_NAME: ${{ secrets.TEST_NAME }}
-          TEST_USER: ${{ secrets.TEST_USER }}
-          TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
-          REDIS_HOST: ${{ secrets.REDIS_HOST }}
-          REDIS_USER: ${{ secrets.REDIS_USER }}
-          REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
-          
+        PORT: 8080
+        TEST_HOST: ${{ secrets.TEST_HOST }}
+        TEST_NAME: ${{ secrets.TEST_NAME }}
+        TEST_USER: ${{ secrets.TEST_USER }}
+        TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
+        REDIS_HOST: ${{ secrets.REDIS_HOST }}
+        REDIS_USER: ${{ secrets.REDIS_USER }}
+        REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
       run: npm test
