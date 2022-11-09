@@ -32,7 +32,7 @@ class BattleService {
         return await Characters.findByPk(characterId);
     }
     async updateCharacter(characterId: number, damage: number, cost: number) {
-        await characterService.refreshStatus(characterId, damage, cost);
+        // await characterService.refreshStatus(characterId, damage, cost);
     }
     async addExp(characterId: number, exp: number) {}
 
