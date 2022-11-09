@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import UserService from './user.service';
 import CharacterService from '../character/character.service';
 import redis from '../db/redis/config';
-import { SignupForm } from '../interfaces/user'
+import { SignupForm, UserSession } from '../interfaces/user'
 import { HttpException, HttpStatus } from '../common';
 
 
@@ -41,13 +41,25 @@ class UserController {
             const sessionData = {
                 userId,
                 characterId: character.characterId,
-                questId,
-                inventory: ''
+                // questId,
+                // inventory: ''
             }
             const data = JSON.stringify(sessionData);
             redis.set(ip, data, { EX: 60*60 });
 
-            res.status(200).end();
+            const user: UserSession = {
+                username,
+                name: character.name,
+                level: character.level,
+                maxhp: character.maxhp,
+                maxmp: character.maxmp,
+                hp: character.hp,
+                mp: character.mp,
+                exp: character.exp,
+                questId
+            }
+
+            res.status(200).json({ user });
         } catch (error) {
             next(error);
         }

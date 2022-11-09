@@ -1,4 +1,4 @@
-import BattileService from './battle.service';
+import BattleService from './battle.service';
 import { NextFunction, request, Request, Response } from 'express';
 import { InputForm } from '../interfaces/dungeon';
 import MonsterService from '../monster/monster.service';
@@ -27,7 +27,7 @@ export default {
     /** 던전 리스트 요청 */
     getDungeonList: async (req: Request, res: Response, next: NextFunction) => {
         try {
-            const result = await BattileService.getDungeonList();
+            const result = await BattleService.getDungeonList();
 
             res.status(200).send(result);
         } catch (error) {
@@ -64,7 +64,7 @@ export default {
         try {
             const { dungeonIndex } = req.app.locals.dungeonStatus;
 
-            const dungeonInfo = await BattileService.selectedDungeonInfo(
+            const dungeonInfo = await BattleService.selectedDungeonInfo(
                 dungeonIndex,
             );
 

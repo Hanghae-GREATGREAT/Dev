@@ -1,9 +1,9 @@
-import { Router } from 'express';
-import MonsterController from './monster.controller';
+// import { Router } from 'express';
+// import MonsterController from './monster.controller';
 
-const router = Router();
+// const router = Router();
 
-router.get('/', MonsterController.findMonster);
-// router.post('/input', MonsterController.inputMonsters);
+// // router.get('/', MonsterController.findMonster);
+// // router.post('/create', MonsterController.createMonster);
 
-export default router;
+// export default router;

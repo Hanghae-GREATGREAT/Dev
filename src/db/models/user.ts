@@ -4,6 +4,7 @@ import {
     CreationOptional,
 } from 'sequelize';
 import sequelize from '../config/connection';
+import Characters from './character';
 
 
 class Users extends Model<
@@ -16,7 +17,12 @@ class Users extends Model<
     declare createdAt: CreationOptional<number>;
     declare updatedAt: CreationOptional<number>;
 
-    static associate() {}
+    static associate() {
+      this.hasOne(Characters, {
+        sourceKey: 'userId',
+        foreignKey: 'userId'
+      });
+    }
 }
 
 Users.init({
@@ -28,6 +34,7 @@ Users.init({
     username: {
       type: DataTypes.STRING(20),
       allowNull: false,
+      unique: true,
     },
     password: {
       type: DataTypes.STRING(100),

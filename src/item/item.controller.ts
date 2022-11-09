@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import ItemService from './item.service';
-import { ItemInputForm } from '../interfaces/interface';
-import { HttpException, HttpStatus } from '../common';
+// import { ItemInputForm } from '../interfaces/interface';
+// import { HttpException, HttpStatus } from '../common';
 
 class ItemController {
     // async inputItems(req: Request, res: Response, next: NextFunction) {
@@ -35,34 +35,20 @@ class ItemController {
     //     }
     // }
 
-    async itemsInput(req: Request, res: Response, next: NextFunction) {
+    // async itemsInput(req: Request, res: Response, next: NextFunction) {
+    //     try {
+    //         await ItemService.itemsInput();
+    //         res.status(200).send({ message: '장비 데이터 생성완료' });
+    //     } catch (error) {
+    //         next();
+    //     }
+    // }
+
+    async itemList(req: Request, res: Response, next: NextFunction) {
         try {
-            await ItemService.itemsInput();
-            res.status(200).send({ message: '장비 데이터 생성완료' });
-        } catch (error) {
-            next();
-        }
-    }
+            const itemList = await ItemService.itemList();
 
-    async weaponList(req: Request, res: Response, next: NextFunction) {
-        try {
-            // const { npcId }: { npcId: number } = req.body;
-            const npcId = 1;
-            const weaponList = await ItemService.weaponList(npcId);
-
-            res.status(200).json({ data: weaponList });
-        } catch (error) {
-            next();
-        }
-    }
-
-    async armorList(req: Request, res: Response, next: NextFunction) {
-        try {
-            // const { npcId }: { npcId: number } = req.body;
-            const npcId = 2;
-            const armorList = await ItemService.armorList(npcId);
-
-            res.status(200).json({ data: armorList });
+            res.status(200).json({ data: itemList });
         } catch (error) {
             next();
         }
