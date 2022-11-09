@@ -40,7 +40,7 @@ Items.init({
     //   }
     },
     monsterId: {
-      type: DataTypes.MEDIUMINT.UNSIGNED,
+      type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
     //   references: {
     //       model: 'Monsters',
@@ -48,8 +48,8 @@ Items.init({
     //   }
     },
     name: DataTypes.STRING(40),
-    attack: DataTypes.MEDIUMINT.UNSIGNED,
-    defense:DataTypes.MEDIUMINT.UNSIGNED,
+    attack: DataTypes.INTEGER.UNSIGNED,
+    defense:DataTypes.INTEGER.UNSIGNED,
     type:DataTypes.TINYINT.UNSIGNED
 }, { 
     sequelize,
