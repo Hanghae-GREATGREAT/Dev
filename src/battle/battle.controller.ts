@@ -167,7 +167,7 @@ export default {
                 const monsterActionScript = `${
                     monster!.name
                 }의 공격은 당신에게 <span class='monsterDmg'>${damage}의</span>의 피해를 입혔다.`;
-                // await BattleService.updateCharacter(characterId, damage, 0);
+                await BattleService.updateCharacter(characterId, damage, 0);
                 turnScript.push(monsterActionScript);
             } else {
                 // 몬스터 사망

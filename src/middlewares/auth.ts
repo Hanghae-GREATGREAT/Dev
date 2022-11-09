@@ -24,7 +24,7 @@ export default {
             req.app.locals.user = null;
             return res.redirect('/');
         }
-        req.app.locals.user = JSON.parse(sessionData);
+        req.app.locals.user = sessionData;
         next();
     }
 }

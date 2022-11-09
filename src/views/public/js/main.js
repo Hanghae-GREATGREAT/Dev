@@ -70,8 +70,7 @@ commendForm.addEventListener('submit', commandHandler);
 function commandHandler(e) {
     const commandEventFn = {
         dungeon: enter,
-        enter: proceed,
-        proceed: fight,
+        enter: event,
     };
 
     const battle = localStorage.getItem('battle');
@@ -104,8 +103,8 @@ async function enter(e) {
         );
         console.log(data);
 
-        const { script, opsions } = data;
-        const commend = `<span>${script}\n${opsions}</span>`;
+        const { dungeonName, opsions, recommendLevel, script } = data;
+        const commend = `<span>${dungeonName}\n추천레벨 : ${recommendLevel}\n${script}\n\n${opsions}</span>`;
         commandLine.append(commend);
         commendInput.val('');
         localStorage.setItem('battle', 'enter');
@@ -114,70 +113,34 @@ async function enter(e) {
     }
 }
 
-async function proceed(e) {
+async function event(e) {
     try {
         console.log('enter');
         e.preventDefault();
         commandLine.empty();
 
         const input = commendInput.val();
-        if (input == 3) {
+        if (input == 2) {
             await dungeon();
             commendInput.val('');
             return;
-        } else if (input > 3) {
-            commandLine.append(
-                `<span>진행하기를 선택해주세요.\n\n돌아가려면 3번을 선택하세요.</span>`
-            );
-            commendInput.val('');
-            return;
-        }
-
-        const { data } = await axios.get(
-            'http://localhost:8080/battle/dungeon/proceed'
-        );
-        console.log(data);
-
-        const { opsions, script } = data;
-        const fight = `<span>${script}\n\n${opsions}</span>`;
-        commandLine.append(fight);
-        commendInput.val('');
-        localStorage.setItem('battle', 'proceed');
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-async function fight(e) {
-    try {
-        console.log('proceed');
-        e.preventDefault();
-        commandLine.empty();
-
-        const input = commendInput.val();
-        if (input == 4) {
-            await dungeon();
-            commendInput.val('');
-            return;
-        } else if (input > 4) {
-            commandLine.append(
-                `<span>진행하기를 선택해주세요.\n\n돌아가려면 4번을 선택하세요.</span>`
-            );
+        } else if (input > 2) {
+            commandLine.append(`<span>진행하기를 선택해주세요.\n\n돌아가려면 2번을 선택하세요.</span>`);
             commendInput.val('');
             return;
         }
 
         const { data } = await axios.post(
-            'http://localhost:8080/battle/dungeon/fight',
+            'http://localhost:8080/battle/dungeon/event',
             { input }
         );
         console.log(data);
 
-        const { monsterScript, userScript } = data;
-        const fight = `<span>${monsterScript}\n${userScript}</span>`;
+        const msg = data.msg;
+        const fight = `<span>${msg}</span>`;
         commandLine.append(fight);
         commendInput.val('');
-        localStorage.setItem('battle', 'fight');
+        localStorage.setItem('battle', 'event');
     } catch (error) {
         console.log(error);
     }

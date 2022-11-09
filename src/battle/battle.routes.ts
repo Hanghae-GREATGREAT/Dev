@@ -13,13 +13,13 @@ router.get('/test', Auth, BattleController.test);
 router.get('/dungeon', Auth, BattleController.getDungeonList);
 
 // 던전 내부 선택지(자동/수동)
-router.post('/dungeon/enter', Auth, BattleController.dungeonInfo);
+router.get('/dungeon/enter', Auth, BattleController.dungeonInfo);
 
 // 던전 진행(던전 상세정보 및 진행)
 router.get('/dungeon/proceed', Auth, BattleController.dungeonProceed);
 
 // 전투 로직
-router.post('/dungeon/fight', Auth, BattleController.fight);
+router.get('/dungeon/fight', Auth, BattleController.fight);
 // 전투 결과
 router.get('/dungeon/fight/action', Auth, BattleController.fightResult);
 
