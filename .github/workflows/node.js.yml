@@ -42,4 +42,6 @@ jobs:
         REDIS_HOST: ${{ secrets.REDIS_HOST }}
         REDIS_USER: ${{ secrets.REDIS_USER }}
         REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
-      run: npm test
+      run: | 
+        echo ${{ secrets.TEST_USER }}
+        npm test
