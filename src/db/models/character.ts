@@ -5,6 +5,28 @@ import {
     CreationOptional, ForeignKey, NonAttribute
 } from 'sequelize';
 import { Users, Titles, Fields } from '../models';
+import { UserSession } from '../../interfaces/user'
+
+
+class ExpMap {
+    private readonly expReq: Map<number, number>;
+
+    constructor() {
+        this.expReq = new Map();
+        let sum = 50
+        this.expReq.set(1, sum);
+        const exp = [0, 50];
+        for (let i=2; i<101; i++) {
+            const e = exp[i-1] + 20 * ((i/5 +1)|0)**2
+            exp.push(e);
+            sum += e;
+            this.expReq.set(i, sum);
+        }
+    }
+    get = (level: number) => {
+        return this.expReq.get(level);
+    }
+}
 
 class Characters extends Model<
     InferAttributes<Characters>, InferCreationAttributes<Characters>
@@ -32,6 +54,9 @@ class Characters extends Model<
     declare Title: NonAttribute<Titles>;
     declare Field: NonAttribute<Fields>;
 
+    private expMap: NonAttribute<ExpMap> = new ExpMap();
+    declare addExp: (characterId: number, exp: number) => Promise<UserSession | null>
+
     static associate() {
         this.belongsTo(Users, {
             targetKey: 'userId',
@@ -45,6 +70,72 @@ class Characters extends Model<
             targetKey: 'fieldId',
             foreignKey: 'fieldId'
         });
+    }
+
+    static async refreshStatus(characterId: number, damage: number, cost: number): Promise<UserSession | null> {
+        const result = await Characters.findByPk(characterId, {
+            include: [ Users, Fields, Titles ]
+        });
+        // const questId = await QuestCompletes.findOne()        
+        if (!result) return null;
+
+        const { hp, mp } = result.get();
+        const newHp = hp - damage > 0 ? hp - damage : 0;
+        const newMp = mp - cost > 0 ? mp - cost : 0;
+        result.update({ hp: newHp, mp: newMp });
+
+        return {
+            username: result.User.getDataValue('username'),
+            name: result.get('name'),
+            level: result.get('level'),
+            maxhp: result.get('maxhp'),
+            maxmp: result.get('maxmp'),
+            hp: newHp,
+            mp: newMp,
+            exp: result.get('exp'),
+            questId: 1
+        }
+    }
+
+    private static levelCalc(exp:number, level: number) {
+        const reqExp = Characters.getInstance().expMap.get(level) || Number.MAX_SAFE_INTEGER;
+
+        return exp >= reqExp ? level + 1 : level;
+    }
+
+    static getInstance(): Characters {
+        return new Characters();
+    }
+
+    static async addExp(characterId: number, exp: number) {
+        const result = await Characters.findByPk(characterId, {
+            include: [ Users, Fields, Titles ]
+        });
+        if (!result) return null;
+        console.log(`${result.get('exp')} + ${exp}`)
+        await result.increment({ exp });
+
+        const level = this.levelCalc(result.get('exp')+exp, result.get('level'));
+        if (level > result.get('level')) {
+            console.log("LEVEL UP!!");
+            await result.increment({ level: 1 });
+        }
+
+        return {
+            username: result.User.getDataValue('username'),
+            name: result.get('name'),
+            level,
+            maxhp: result.get('maxhp'),
+            maxmp: result.get('maxmp'),
+            hp: result.get('hp'),
+            mp: result.get('mp'),
+            exp: result.get('exp') + exp,
+            questId: 1
+        }
+    }
+    
+    getExpRequire(level: number) {
+        return this.expMap.get(level);
     }
 };
 
