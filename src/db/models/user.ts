@@ -27,7 +27,7 @@ class Users extends Model<
 
 Users.init({
     userId: {
-      type: DataTypes.MEDIUMINT.UNSIGNED,
+      type: DataTypes.INTEGER.UNSIGNED,
       autoIncrement: true,
       primaryKey: true,
     },

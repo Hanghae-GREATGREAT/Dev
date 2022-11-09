@@ -50,12 +50,12 @@ class Characters extends Model<
 
 Characters.init({
     characterId: {
-        type: DataTypes.MEDIUMINT.UNSIGNED,
+        type: DataTypes.INTEGER.UNSIGNED,
         autoIncrement: true,
         primaryKey: true,
     },
     userId: {
-        type: DataTypes.MEDIUMINT.UNSIGNED,
+        type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
         references: {
             model: 'Users',
@@ -82,13 +82,13 @@ Characters.init({
     name: DataTypes.STRING(40),
     job: DataTypes.STRING(40),
     level: DataTypes.TINYINT.UNSIGNED,
-    attack: DataTypes.MEDIUMINT.UNSIGNED,
-    defense: DataTypes.MEDIUMINT.UNSIGNED,
-    maxhp: DataTypes.MEDIUMINT.UNSIGNED,
-    maxmp: DataTypes.MEDIUMINT.UNSIGNED,
-    hp: DataTypes.MEDIUMINT.UNSIGNED,
-    mp: DataTypes.MEDIUMINT.UNSIGNED,
-    exp: DataTypes.MEDIUMINT.UNSIGNED,
+    attack: DataTypes.INTEGER.UNSIGNED,
+    defense: DataTypes.INTEGER.UNSIGNED,
+    maxhp: DataTypes.INTEGER.UNSIGNED,
+    maxmp: DataTypes.INTEGER.UNSIGNED,
+    hp: DataTypes.INTEGER.UNSIGNED,
+    mp: DataTypes.INTEGER.UNSIGNED,
+    exp: DataTypes.INTEGER.UNSIGNED,
 
     createdAt: {
         type: DataTypes.INTEGER,
