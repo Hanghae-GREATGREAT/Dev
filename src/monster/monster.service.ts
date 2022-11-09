@@ -1,3 +1,4 @@
+import { where } from 'sequelize';
 import { Monsters } from '../db/models';
 import { MonsterInputForm } from '../interfaces/interface';
 
@@ -85,26 +86,12 @@ class MonsterService {
         return await Monsters.update({ hp }, { where: { monsterId } });
     }
 
-    isRere() {
-        // 랜덤값 생성(1~100)
-        const ranNum: number = Math.floor(Math.random() * 99 + 1);
+    async changeMonsterStatus(monsterId: number, hp: number) {
+        return await Monsters.update({ hp: hp }, { where: { monsterId } });
+    }
 
-        // 몬스터의 타입을 결정, 일반, 정예, 보스 순
-        const type: number[] = [2, 1, 0];
-        // 각 희귀도에 따른 등장확률
-        const isRere: number[] = [2, 28, 70];
-
-        let res: number;
-
-        for (let i = 0; i < type.length; i++) {
-            if (isRere[i] >= ranNum) {
-                res = type[i];
-                return res;
-            } else if (isRere[isRere.length - 1] < ranNum) {
-                res = type[type.length - 1];
-                return res;
-            }
-        }
+    async findMonsterById(monsterId: number) {
+        return await Monsters.findByPk(monsterId);
     }
 }
 
