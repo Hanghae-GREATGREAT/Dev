@@ -15,7 +15,8 @@ export default {
              */
             console.log(typeof user);
 
-            res.status(200).send(user);
+            // res.status(200).send(user);
+            res.status(200).send(JSON.parse(user));
         } catch (error) {
             next(error);
         }
@@ -61,7 +62,7 @@ export default {
             const dungeonLevel = input;
             const data = {
                 dungeonLevel,
-                characterId: 101,
+                characterId: characterId,
                 monsterId: 0,
             };
             // 진행상황 저장
@@ -126,16 +127,20 @@ export default {
             const character = await BattleService.getCharacter(characterId);
             let playerHP = character!.hp;
             let playerMP = character!.mp;
+            let playerCost = 0; // 플레이어가 사용한 마나
             const playerAttack = character!.attack;
             const playerDefence = character!.defense;
             // 몬스터 스테이터스
             const monster = await BattleService.getMonster(monsterId);
+            const monsterName = monster!.name;
             let monsterHP = monster!.hp;
             const monsterAttack = monster!.attack;
-            const monsterDefence = monster!.defense;
+            const monsterExp = monster!.exp;
 
             // 전투 턴 스크립트 선언
             let turnScript = [];
+            // 유저 스크립트 선언
+            let userActionScript = '';
 
             // 유저 턴 로직
             if (input === 1) {
@@ -143,18 +148,16 @@ export default {
                 const hitStrength = Math.floor(Math.random() * 40) + 80; // 80 ~ 120
                 const damage = Math.floor((playerAttack * hitStrength) / 100);
 
-                const userActionScript = `당신의 공격으로 ${
-                    monster!.name
-                }에게 ${damage}의 피해를 입혔다.`;
+                userActionScript = `당신의 공격으로 ${monsterName}에게 <span class='playerDmg'>${damage}의</span> 피해를 입혔다.`;
 
                 monsterHP -= damage;
-                turnScript.push(userActionScript);
             } else {
                 // 스킬 공격 로직
 
-                const userActionScript = `당신의 (유저스킬N.name)공격으로 (몬스터.name)에게 00의 피해를 입혔다.`;
-                turnScript.push(userActionScript);
+                userActionScript = `당신의 (유저스킬N.name)공격으로 (몬스터.name)에게 00의 피해를 입혔다.`;
             }
+            await BattleService.updateMonster(monsterId, monsterHP);
+            turnScript.push(userActionScript);
 
             // 몬스터 턴 로직
             if (monsterHP > 0) {
@@ -163,26 +166,32 @@ export default {
 
                 const monsterActionScript = `${
                     monster!.name
-                }의 공격은 당신에게 ${damage}의 피해를 입혔다.`;
+                }의 공격은 당신에게 <span class='monsterDmg'>${damage}의</span>의 피해를 입혔다.`;
+                await BattleService.updateCharacter(characterId, damage, 0);
                 turnScript.push(monsterActionScript);
             } else {
                 // 몬스터 사망
+                await BattleService.destroyMonster(monsterId);
+                await BattleService.addExp(characterId, monsterExp);
+                req.app.locals.dungeonStatus.monsterId = 0;
+                turnScript.push(`${monsterName}이(가) 쓰러졌다.`);
             }
 
+            // 전투결과에 따른 다음 명령 (fight, home)
+            let goNext = 'fight';
             // 유저 사망여부 판단
-            if (playerHP > 0) {
+            if (playerHP < 0) {
+                turnScript.push('당신은 죽었습니다.');
+                goNext = 'home';
             }
-            // 전투 스크립트
-            // 전투결과 스크립트
-            // 몬스터 스크립트
-
-            // 유저 선택지 생성
-            const options = '1. 공격 한다\n2. 스킬1\n3. 스킬2\n4. 도망간다';
-
-            // 던전 진행상황 업데이트
 
             // 결과 스크립트 생성
-            const resultScript = { script: turnScript, options: options };
+            const resultScript = {
+                userScript: turnScript[0],
+                monsterScript: turnScript[1],
+                fightScript: turnScript[2],
+                goNext,
+            };
 
             res.status(200).json(resultScript);
         } catch (error) {

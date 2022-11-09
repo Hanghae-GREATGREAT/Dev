@@ -1,6 +1,7 @@
 import { dungeonInfoForm, InputForm } from '../interfaces/dungeon';
 import { Characters, Fields, Monsters } from '../db/models';
 import characterService from '../character/character.service';
+import MonsterService from '../monster/monster.service';
 
 class BattleService {
     // 모든 던전이름 목록 반환
@@ -31,13 +32,19 @@ class BattleService {
         return await Characters.findByPk(characterId);
     }
     async updateCharacter(characterId: number, damage: number, cost: number) {
-        // await characterService.refreshStatus(characterId, damage, cost);
+        await characterService.refreshStatus(characterId, damage, cost);
     }
     async addExp(characterId: number, exp: number) {}
 
     /** 몬스터 정보 */
     async getMonster(monsterId: number) {
         return await Monsters.findByPk(monsterId);
+    }
+    async updateMonster(monsterId: number, hp: number) {
+        await MonsterService.updateMonster(monsterId, hp);
+    }
+    async destroyMonster(monsterId: number) {
+        await MonsterService.destroyMonster(monsterId);
     }
 
     async fightAction(input: number) {
