@@ -27,12 +27,12 @@ class Monsters extends Model<
 
 Monsters.init({
     monsterId: {
-      type: DataTypes.SMALLINT.UNSIGNED,
+      type: DataTypes.INTEGER.UNSIGNED,
       autoIncrement: true,
       primaryKey: true,
     },
     fieldId: {
-    type: DataTypes.SMALLINT.UNSIGNED,
+    type: DataTypes.INTEGER.UNSIGNED,
       allowNull: false,
     //   references: {
     //       model: 'Fields',
@@ -41,10 +41,10 @@ Monsters.init({
     },
     name: DataTypes.STRING(40),
     type: DataTypes.TINYINT.UNSIGNED,
-    hp: DataTypes.MEDIUMINT.UNSIGNED,
-    attack: DataTypes.MEDIUMINT.UNSIGNED,
-    defense:DataTypes.MEDIUMINT.UNSIGNED,
-    exp: DataTypes.MEDIUMINT.UNSIGNED,
+    hp: DataTypes.SMALLINT.UNSIGNED,
+    attack: DataTypes.SMALLINT.UNSIGNED,
+    defense:DataTypes.SMALLINT.UNSIGNED,
+    exp: DataTypes.SMALLINT.UNSIGNED,
 }, { 
     sequelize,
     modelName: "Monsters",

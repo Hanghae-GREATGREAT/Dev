@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import UserController from '../../src/user/user.controller';
 import sequelize from '../../src/db/config/connection';
 import associate from '../../src/db/config/associate';
+import redis from '../../src/db/redis/config';
 import resetTable from '../resetTable';
 import env from '../../src/config.env';
 
@@ -17,7 +18,7 @@ describe('user controller test', ()=>{
     beforeAll(async()=>{
         await sequelize.authenticate();
         associate();
-        await resetTable();
+        console.log(env);
         if (env.NODE_ENV === 'test') {
             await sequelize.authenticate();
             associate();
@@ -37,14 +38,15 @@ describe('user controller test', ()=>{
 
     afterAll(async()=>{
         await sequelize.close();
+        await redis.disconnect();
     });
 
 
     // 회원가입 테스트
-    test('signup: should return status 200, if success', async()=>{
+    test.skip('signup: should return status 200, if success', async()=>{
         req = {
             body: {
-                username: 'root',
+                username: 'new1use2r',
                 password: '1234',
                 confirm: '1234'
             }
@@ -58,7 +60,7 @@ describe('user controller test', ()=>{
     test('signup: should return status 400, if passwords does not match', async()=>{
         req = {
             body: {
-                username: 'root',
+                username: 'new1use2r',
                 password: '1234',
                 confirm: '1235'
             }
@@ -71,11 +73,25 @@ describe('user controller test', ()=>{
 
 
     // 로그인 테스트
-    test.skip('signin: should redirect to "/", if no character',async() => {
+    test('signin: should return status 200, if success', async () => {
         req = {
             body: {
                 username: 'root',
-                password: '1234'
+                password: '1234',
+            }
+        }
+
+        await UserController.signin(req as Request, res as Response, next as NextFunction);
+
+        // expect(res.status).toBeCalledWith(200);
+        expect(next).toBeCalled()
+    });
+
+    test('signin: should redirect to "/", if no character',async() => {
+        req = {
+            body: {
+                username: 'new1use2r',
+                password: '1234',
             }
         }
         res = {
@@ -90,7 +106,7 @@ describe('user controller test', ()=>{
     test('signin: should call next, if any error happens', async () => {
         req = {
             body: {
-                username: 'root',
+                username: 'new1use2r',
                 password: '1235',
             }
         }
