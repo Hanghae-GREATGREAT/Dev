@@ -82,12 +82,12 @@ Characters.init({
     name: DataTypes.STRING(40),
     job: DataTypes.STRING(40),
     level: DataTypes.TINYINT.UNSIGNED,
-    attack: DataTypes.INTEGER.UNSIGNED,
-    defense: DataTypes.INTEGER.UNSIGNED,
-    maxhp: DataTypes.INTEGER.UNSIGNED,
-    maxmp: DataTypes.INTEGER.UNSIGNED,
-    hp: DataTypes.INTEGER.UNSIGNED,
-    mp: DataTypes.INTEGER.UNSIGNED,
+    attack: DataTypes.SMALLINT.UNSIGNED,
+    defense: DataTypes.SMALLINT.UNSIGNED,
+    maxhp: DataTypes.SMALLINT.UNSIGNED,
+    maxmp: DataTypes.SMALLINT.UNSIGNED,
+    hp: DataTypes.SMALLINT.UNSIGNED,
+    mp: DataTypes.SMALLINT.UNSIGNED,
     exp: DataTypes.INTEGER.UNSIGNED,
 
     createdAt: {
