@@ -36,19 +36,19 @@ class Characters extends Model<
     declare titleId: ForeignKey<number>
     declare fieldId: ForeignKey<number>
 
-    declare name: string;
-    declare job: string;
-    declare level: number;
-    declare attack: number;
-    declare defense: number;
-    declare maxhp: number;
-    declare maxmp: number;
-    declare hp: number;
-    declare mp: number;
-    declare exp: number;
+    declare name: CreationOptional<string>;
+    declare job: CreationOptional<string>;
+    declare level: CreationOptional<number>;
+    declare attack: CreationOptional<number>;
+    declare defense: CreationOptional<number>;
+    declare maxhp: CreationOptional<number>;
+    declare maxmp: CreationOptional<number>;
+    declare hp: CreationOptional<number>;
+    declare mp: CreationOptional<number>;
+    declare exp: CreationOptional<number>;
 
-    declare createdAt: number;
-    declare updatedAt: number;
+    declare createdAt: CreationOptional<number>;
+    declare updatedAt: CreationOptional<number>;
 
     declare User: NonAttribute<Users>;
     declare Title: NonAttribute<Titles>;
@@ -170,16 +170,46 @@ Characters.init({
         }
     },
 
-    name: DataTypes.STRING(40),
-    job: DataTypes.STRING(40),
-    level: DataTypes.TINYINT.UNSIGNED,
-    attack: DataTypes.SMALLINT.UNSIGNED,
-    defense: DataTypes.SMALLINT.UNSIGNED,
-    maxhp: DataTypes.SMALLINT.UNSIGNED,
-    maxmp: DataTypes.SMALLINT.UNSIGNED,
-    hp: DataTypes.SMALLINT.UNSIGNED,
-    mp: DataTypes.SMALLINT.UNSIGNED,
-    exp: DataTypes.INTEGER.UNSIGNED,
+    name: {
+        type: DataTypes.STRING(40),
+        defaultValue: 'empty character',
+    },
+    job: {
+        type: DataTypes.STRING(40),
+        defaultValue: 'novice',
+    },
+    level: {
+        type: DataTypes.TINYINT.UNSIGNED,
+        defaultValue: 0,
+    },
+    attack: {
+        type: DataTypes.SMALLINT.UNSIGNED,
+        defaultValue: 0,
+    },
+    defense: {
+        type: DataTypes.SMALLINT.UNSIGNED,
+        defaultValue: 0,
+    },
+    maxhp: {
+        type: DataTypes.SMALLINT.UNSIGNED,
+        defaultValue: 0,
+    },
+    maxmp: {
+        type: DataTypes.SMALLINT.UNSIGNED,
+        defaultValue: 0,
+    },
+    hp: {
+        type: DataTypes.SMALLINT.UNSIGNED,
+        defaultValue: 0,
+    },
+    mp: {
+        type: DataTypes.SMALLINT.UNSIGNED,
+        defaultValue: 0,
+    },
+    exp: {
+        type: DataTypes.INTEGER.UNSIGNED,
+        defaultValue: 0,
+    },
 
     createdAt: {
         type: DataTypes.INTEGER,
