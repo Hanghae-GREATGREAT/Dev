@@ -8,6 +8,9 @@ import { Users, Titles, Fields } from '../models';
 import { UserSession } from '../../interfaces/user'
 
 
+/***************************************************************
+ * 레벨별 필요 경험치
+ ***************************************************************/
 class ExpMap {
     private readonly expReq: Map<number, number>;
 
@@ -72,6 +75,9 @@ class Characters extends Model<
         });
     }
 
+    /***************************************************************
+     * 전투 턴이 종료되고 hp, mp 상태 갱신
+     ***************************************************************/
     static async refreshStatus(characterId: number, damage: number, cost: number): Promise<UserSession | null> {
         const result = await Characters.findByPk(characterId, {
             include: [ Users, Fields, Titles ]
@@ -97,41 +103,45 @@ class Characters extends Model<
         }
     }
 
+    /***************************************************************
+     * 전투 종료 후 경험치&레벨 계산
+     ***************************************************************/
     private static levelCalc(exp:number, level: number) {
         const reqExp = Characters.getInstance().expMap.get(level) || Number.MAX_SAFE_INTEGER;
 
         return exp >= reqExp ? level + 1 : level;
-    }
+    }    
 
-    static getInstance(): Characters {
-        return new Characters();
-    }
-
-    static async addExp(characterId: number, exp: number) {
+    static async addExp(characterId: number, exp: number): Promise<UserSession | null> {
         const result = await Characters.findByPk(characterId, {
             include: [ Users, Fields, Titles ]
         });
         if (!result) return null;
-        console.log(`${result.get('exp')} + ${exp}`)
+
         await result.increment({ exp });
 
         const level = this.levelCalc(result.get('exp')+exp, result.get('level'));
+        let levelup = false;
         if (level > result.get('level')) {
-            console.log("LEVEL UP!!");
+            levelup = true;
             await result.increment({ level: 1 });
         }
 
         return {
             username: result.User.getDataValue('username'),
             name: result.get('name'),
-            level,
+            level, levelup,
             maxhp: result.get('maxhp'),
             maxmp: result.get('maxmp'),
             hp: result.get('hp'),
             mp: result.get('mp'),
             exp: result.get('exp') + exp,
-            questId: 1
+            questId: 1,
         }
+    }
+
+    static getInstance(): Characters {
+        return new Characters();
     }
     
     getExpRequire(level: number) {
