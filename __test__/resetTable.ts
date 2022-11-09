@@ -1,8 +1,15 @@
-// import sequelize from '../src/db/config/connection';
-import { Users } from '../src/db/models';
+import * as models from '../src/db/models';
 
-export default async() => {
-    await Users.drop();
 
-    await Users.sync();
+export default async () => {
+    const modelList = Object.values(models);
+
+    for (const model of modelList) {
+        await model.drop();
+    }
+
+    modelList.reverse();
+    for (const model of modelList) {
+        await model.sync();
+    }
 };
