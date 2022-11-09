@@ -1,13 +1,7 @@
 /*****************************************************************************
                               페이지 초기 스크립트
 ******************************************************************************/
-const chatSubmitId = $('#chatSubmit');
-const chatBoxId = $('#chatBox');
 const userInfo = $('#userInfo');
-
-const commandLine = $('.commendLine');
-const commendInput = $('#commendInput')
-
 
 
 const socket = io('/');
@@ -32,6 +26,7 @@ $(()=>{
                                 커맨드 스크립트
 ******************************************************************************/
 
+
 const statusLoader = ({ username, name, level, maxhp, maxmp, hp, mp, exp }) => {
     const status = `
     <div class="infoName">
@@ -51,6 +46,9 @@ const statusLoader = ({ username, name, level, maxhp, maxmp, hp, mp, exp }) => {
 // const main = `<span></span>
 // `
 // commandLine.append(main)
+
+const commandLine = $('.commendLine');
+const commendInput = $('#commendInput');
 
 async function dungeon() {
     try {
@@ -147,6 +145,9 @@ async function event(e) {
 /*****************************************************************************
                                 채팅 스크립트
 ******************************************************************************/
+const chatSubmitId = $('#chatSubmit');
+const chatBoxId = $('#chatBox');
+
 
 const chatNewMessage = ({ script }) => {
     console.log('NEEEEEEEEEEEW', script)
