@@ -10,7 +10,7 @@ class UserService {
             username: username!,
             password: await bcrypt.hash(password!, 10),
         }
-        await Users.create(user);
+        return await Users.create(user);
     }
 
     async signin({ username, password }: Partial<Users>) {

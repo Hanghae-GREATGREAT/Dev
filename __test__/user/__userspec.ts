@@ -16,10 +16,9 @@ describe('user controller test', ()=>{
 
     // test DB 연결
     beforeAll(async()=>{
-        await sequelize.authenticate();
-        associate();
         console.log(env);
         if (env.NODE_ENV === 'test') {
+            console.log("CONNECTED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
             await sequelize.authenticate();
             associate();
             await resetTable();
@@ -29,6 +28,8 @@ describe('user controller test', ()=>{
     });
 
     beforeEach(()=>{
+        jest.resetModules();
+        jest.resetAllMocks();
         req = {};
         res = {
             status: jest.fn(),
@@ -43,7 +44,7 @@ describe('user controller test', ()=>{
 
 
     // 회원가입 테스트
-    test.skip('signup: should return status 200, if success', async()=>{
+    test('signup: should return status 200, if success', async()=>{
         req = {
             body: {
                 username: 'new1use2r',
@@ -67,51 +68,6 @@ describe('user controller test', ()=>{
         }
 
         await UserController.signup(req as Request, res as Response, next as NextFunction);
-
-        expect(next).toBeCalled();
-    });
-
-
-    // 로그인 테스트
-    test('signin: should return status 200, if success', async () => {
-        req = {
-            body: {
-                username: 'root',
-                password: '1234',
-            }
-        }
-
-        await UserController.signin(req as Request, res as Response, next as NextFunction);
-
-        // expect(res.status).toBeCalledWith(200);
-        expect(next).toBeCalled()
-    });
-
-    test('signin: should redirect to "/", if no character',async() => {
-        req = {
-            body: {
-                username: 'new1use2r',
-                password: '1234',
-            }
-        }
-        res = {
-            redirect: jest.fn(()=>{})
-        }
-
-        await UserController.signin(req as Request, res as Response, next as NextFunction);
-
-        expect(res.redirect).toBeCalledWith('/');
-    });
-
-    test('signin: should call next, if any error happens', async () => {
-        req = {
-            body: {
-                username: 'new1use2r',
-                password: '1235',
-            }
-        }
-
-        await UserController.signin(req as Request, res as Response, next as NextFunction);
 
         expect(next).toBeCalled();
     });

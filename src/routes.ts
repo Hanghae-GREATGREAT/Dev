@@ -5,19 +5,23 @@ import BattleRouter from './battle/battle.routes';
 import ItemRouter from './item/item.routes';
 import SkillRouter from './skill/skill.routes';
 // import MonsterRouter from './monster/monster.routes';
-import CharacterRouter from './character/character.routes';
+
 
 const router = Router();
 
+import { Characters } from './db/models';
+// import CharacterService from './character/character.service'
 router.get('/test', async (req, res, next) => {
-    console.log('test: ', req.socket);
+    const result = await Characters.refreshStatus(1, 10, 10)   
+
     res.status(200).json({
         message: 'INDEX PAGE',
+        result: result,
     });
 });
 
 router.use('/', PageRouter);
-router.use('/', CharacterRouter);
+
 router.use('/user', UserRouter);
 router.use('/battle', BattleRouter);
 router.use('/items', ItemRouter);
