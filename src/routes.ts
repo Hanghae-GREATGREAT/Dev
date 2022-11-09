@@ -12,8 +12,9 @@ const router = Router();
 import { Characters } from './db/models';
 // import CharacterService from './character/character.service'
 router.get('/test', async (req, res, next) => {
-    const result = await Characters.refreshStatus(1, 10, 10)   
-
+    const result = await Characters.refreshStatus(1, 10, 10)
+    // const result = await Characters.addExp(1, 10)
+    
     res.status(200).json({
         message: 'INDEX PAGE',
         result: result,
