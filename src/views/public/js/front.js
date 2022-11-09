@@ -41,11 +41,16 @@ const signupSubmitHandler = async() => {
     const password = $('#inputPass').val();
     const confirm = $('#inputConfirm').val();
 
-    await fetch('/user/signup', {
+    fetch('/user/signup', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({ username, password, confirm })
     });
+
+    signinToggleHandler();
+    $('#inputName').val('');
+    $('#inputPass').val('');
+    $('#inputConfirm').val('');
 };

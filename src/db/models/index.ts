@@ -1,4 +1,4 @@
-// import Skills from "./skill";
+import Skills from "./skill";
 import Items from './item'
 // import Inventories from './inventories'
 import Characters from "./character";
@@ -9,7 +9,7 @@ import Users from "./user";
 
 
 export {
-    // Skills,
+    Skills,
     Items,
     Characters,
     Monsters,

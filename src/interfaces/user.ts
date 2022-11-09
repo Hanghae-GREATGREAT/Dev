@@ -10,6 +10,7 @@ interface UserSession {
     username: string;
     name: string;
     level: number;
+    levelup?: boolean;
     maxhp: number;
     maxmp: number;
     hp: number;
