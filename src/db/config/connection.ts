@@ -8,6 +8,7 @@ const sequelize = new Sequelize({
     username: env.DB_USER,
     password: env.DB_PASSWORD,
     dialect: 'mysql',
+    // logging: false,
 });
 
 

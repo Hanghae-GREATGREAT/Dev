@@ -38,7 +38,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 app.use(morgan.middleware);
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'views' , 'public')));
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors({
