@@ -3,29 +3,25 @@
 ******************************************************************************/
 const userInfo = $('#userInfo');
 
-
 const socket = io('/');
 
-$(()=>{
+$(() => {
     chatBoxId.empty();
     userInfo.empty();
     commandLine.empty();
 
     const userStore = localStorage.getItem('user');
     const user = JSON.parse(userStore);
-    
+
     dungeon();
     statusLoader(user);
 
     socket.emit('info', { name: user.name });
 });
 
-
-
 /*****************************************************************************
                                 커맨드 스크립트
 ******************************************************************************/
-
 
 const statusLoader = ({ username, name, level, maxhp, maxmp, hp, mp, exp }) => {
     const status = `
@@ -41,7 +37,7 @@ const statusLoader = ({ username, name, level, maxhp, maxmp, hp, mp, exp }) => {
     </div>
     `;
     userInfo.append(status);
-}
+};
 
 // const main = `<span></span>
 // `
@@ -53,7 +49,9 @@ const commendInput = $('#commendInput');
 async function dungeon() {
     try {
         commandLine.empty();
-        const { data } = await axios.get('http://localhost:8080/battle/dungeon');
+        const { data } = await axios.get(
+            'http://localhost:8080/battle/dungeon'
+        );
 
         const script = data.script;
         const options = data.options;
@@ -66,23 +64,22 @@ async function dungeon() {
     }
 }
 
-
 const commendForm = document.querySelector('.commendInput');
 commendForm.addEventListener('submit', commandHandler);
 
 function commandHandler(e) {
     const commandEventFn = {
-        'dungeon': enter,
-        'enter': event,
-    }
+        dungeon: enter,
+        enter: event,
+    };
 
     const battle = localStorage.getItem('battle');
     commandEventFn[battle](e);
 }
 
-
 async function enter(e) {
-    try { console.log(111111);
+    try {
+        console.log(111111);
         e.preventDefault();
         commandLine.empty();
 
@@ -100,14 +97,14 @@ async function enter(e) {
             return;
         }
 
-        const { data } = await axios.post('http://localhost:8080/battle/dungeon/enter', { input })
+        const { data } = await axios.post(
+            'http://localhost:8080/battle/dungeon/enter',
+            { input }
+        );
         console.log(data);
 
-        const name = data.dungeonName;
-        const op = data.opsions;
-        const lev = data.recommendLevel;
-        const script = data.script;
-        const commend = `<span>${name}\n추천레벨 : ${lev}\n${script}\n\n${op}</span>`;
+        const { dungeonName, opsions, recommendLevel, script } = data;
+        const commend = `<span>${dungeonName}\n추천레벨 : ${recommendLevel}\n${script}\n\n${opsions}</span>`;
         commandLine.append(commend);
         commendInput.val('');
         localStorage.setItem('battle', 'enter');
@@ -116,9 +113,9 @@ async function enter(e) {
     }
 }
 
-
 async function event(e) {
-    try {console.log('enter');
+    try {
+        console.log('enter');
         e.preventDefault();
         commandLine.empty();
 
@@ -127,20 +124,27 @@ async function event(e) {
             await dungeon();
             commendInput.val('');
             return;
+        } else if (input > 2) {
+            commandLine.append(`<span>진행하기를 선택해주세요.\n\n돌아가려면 2번을 선택하세요.</span>`);
+            commendInput.val('');
+            return;
         }
 
-        const { data } = await axios.post('http://localhost:8080/battle/dungeon/event', { input });
+        const { data } = await axios.post(
+            'http://localhost:8080/battle/dungeon/event',
+            { input }
+        );
         console.log(data);
 
         const msg = data.msg;
         const fight = `<span>${msg}</span>`;
         commandLine.append(fight);
         commendInput.val('');
+        localStorage.setItem('battle', 'event');
     } catch (error) {
         console.log(error);
     }
 }
-
 
 /*****************************************************************************
                                 채팅 스크립트
@@ -148,12 +152,11 @@ async function event(e) {
 const chatSubmitId = $('#chatSubmit');
 const chatBoxId = $('#chatBox');
 
-
 const chatNewMessage = ({ script }) => {
-    console.log('NEEEEEEEEEEEW', script)
+    console.log('NEEEEEEEEEEEW', script);
     const newMessage = `<span>${script}</span>`;
     chatBoxId.append(newMessage);
-}
+};
 
 const chatSubmitdHandler = () => {
     const user = localStorage.getItem('user');
@@ -162,11 +165,9 @@ const chatSubmitdHandler = () => {
     const data = {
         name,
         message: chatSubmitId.val(),
-    }
+    };
     socket.emit('submit', data);
     chatSubmitId.val('');
-}   
+};
 
-
-
-socket.on('print', chatNewMessage)
+socket.on('print', chatNewMessage);
