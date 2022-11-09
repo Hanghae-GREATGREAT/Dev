@@ -33,6 +33,10 @@ class CharacterService {
             }
         };
     }
+
+    async createNewCharacter(userId: number) {
+        Characters.create({ userId, fieldId: 1, titleId: 1, });
+    }
 }
 
 

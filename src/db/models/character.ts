@@ -8,6 +8,9 @@ import { Users, Titles, Fields } from '../models';
 import { UserSession } from '../../interfaces/user'
 
 
+/***************************************************************
+ * 레벨별 필요 경험치
+ ***************************************************************/
 class ExpMap {
     private readonly expReq: Map<number, number>;
 
@@ -36,19 +39,19 @@ class Characters extends Model<
     declare titleId: ForeignKey<number>
     declare fieldId: ForeignKey<number>
 
-    declare name: string;
-    declare job: string;
-    declare level: number;
-    declare attack: number;
-    declare defense: number;
-    declare maxhp: number;
-    declare maxmp: number;
-    declare hp: number;
-    declare mp: number;
-    declare exp: number;
+    declare name: CreationOptional<string>;
+    declare job: CreationOptional<string>;
+    declare level: CreationOptional<number>;
+    declare attack: CreationOptional<number>;
+    declare defense: CreationOptional<number>;
+    declare maxhp: CreationOptional<number>;
+    declare maxmp: CreationOptional<number>;
+    declare hp: CreationOptional<number>;
+    declare mp: CreationOptional<number>;
+    declare exp: CreationOptional<number>;
 
-    declare createdAt: number;
-    declare updatedAt: number;
+    declare createdAt: CreationOptional<number>;
+    declare updatedAt: CreationOptional<number>;
 
     declare User: NonAttribute<Users>;
     declare Title: NonAttribute<Titles>;
@@ -72,6 +75,9 @@ class Characters extends Model<
         });
     }
 
+    /***************************************************************
+     * 전투 턴이 종료되고 hp, mp 상태 갱신
+     ***************************************************************/
     static async refreshStatus(characterId: number, damage: number, cost: number): Promise<UserSession | null> {
         const result = await Characters.findByPk(characterId, {
             include: [ Users, Fields, Titles ]
@@ -97,41 +103,45 @@ class Characters extends Model<
         }
     }
 
+    /***************************************************************
+     * 전투 종료 후 경험치&레벨 계산
+     ***************************************************************/
     private static levelCalc(exp:number, level: number) {
         const reqExp = Characters.getInstance().expMap.get(level) || Number.MAX_SAFE_INTEGER;
 
         return exp >= reqExp ? level + 1 : level;
-    }
+    }    
 
-    static getInstance(): Characters {
-        return new Characters();
-    }
-
-    static async addExp(characterId: number, exp: number) {
+    static async addExp(characterId: number, exp: number): Promise<UserSession | null> {
         const result = await Characters.findByPk(characterId, {
             include: [ Users, Fields, Titles ]
         });
         if (!result) return null;
-        console.log(`${result.get('exp')} + ${exp}`)
+
         await result.increment({ exp });
 
         const level = this.levelCalc(result.get('exp')+exp, result.get('level'));
+        let levelup = false;
         if (level > result.get('level')) {
-            console.log("LEVEL UP!!");
+            levelup = true;
             await result.increment({ level: 1 });
         }
 
         return {
             username: result.User.getDataValue('username'),
             name: result.get('name'),
-            level,
+            level, levelup,
             maxhp: result.get('maxhp'),
             maxmp: result.get('maxmp'),
             hp: result.get('hp'),
             mp: result.get('mp'),
             exp: result.get('exp') + exp,
-            questId: 1
+            questId: 1,
         }
+    }
+
+    static getInstance(): Characters {
+        return new Characters();
     }
     
     getExpRequire(level: number) {
@@ -170,16 +180,46 @@ Characters.init({
         }
     },
 
-    name: DataTypes.STRING(40),
-    job: DataTypes.STRING(40),
-    level: DataTypes.TINYINT.UNSIGNED,
-    attack: DataTypes.SMALLINT.UNSIGNED,
-    defense: DataTypes.SMALLINT.UNSIGNED,
-    maxhp: DataTypes.SMALLINT.UNSIGNED,
-    maxmp: DataTypes.SMALLINT.UNSIGNED,
-    hp: DataTypes.SMALLINT.UNSIGNED,
-    mp: DataTypes.SMALLINT.UNSIGNED,
-    exp: DataTypes.INTEGER.UNSIGNED,
+    name: {
+        type: DataTypes.STRING(40),
+        defaultValue: 'empty character',
+    },
+    job: {
+        type: DataTypes.STRING(40),
+        defaultValue: 'novice',
+    },
+    level: {
+        type: DataTypes.TINYINT.UNSIGNED,
+        defaultValue: 0,
+    },
+    attack: {
+        type: DataTypes.SMALLINT.UNSIGNED,
+        defaultValue: 0,
+    },
+    defense: {
+        type: DataTypes.SMALLINT.UNSIGNED,
+        defaultValue: 0,
+    },
+    maxhp: {
+        type: DataTypes.SMALLINT.UNSIGNED,
+        defaultValue: 0,
+    },
+    maxmp: {
+        type: DataTypes.SMALLINT.UNSIGNED,
+        defaultValue: 0,
+    },
+    hp: {
+        type: DataTypes.SMALLINT.UNSIGNED,
+        defaultValue: 0,
+    },
+    mp: {
+        type: DataTypes.SMALLINT.UNSIGNED,
+        defaultValue: 0,
+    },
+    exp: {
+        type: DataTypes.INTEGER.UNSIGNED,
+        defaultValue: 0,
+    },
 
     createdAt: {
         type: DataTypes.INTEGER,
