@@ -34,8 +34,14 @@ class CharacterService {
         };
     }
 
-    async createNewCharacter(userId: number) {
+    async createEmptyCharacter(userId: number) {
         Characters.create({ userId, fieldId: 1, titleId: 1, });
+    }
+
+    async createNewCharacter(character: Partial<Characters>) {
+        Characters.update(character, {
+            where: { characterId: character.characterId }
+        });
     }
 }
 

@@ -18,13 +18,13 @@ export default {
         if (!ip) {
             throw new HttpException('잘못된 접근입니다', HttpStatus.BAD_REQUEST);
         }
-
+console.log(ip);
         const sessionData = await redis.get(ip);
         if (!sessionData) {
             req.app.locals.user = null;
             return res.redirect('/');
-        }
-        req.app.locals.user = sessionData;
+        }console.log(sessionData);
+        req.app.locals.user = JSON.parse(sessionData);
         next();
     }
 }
