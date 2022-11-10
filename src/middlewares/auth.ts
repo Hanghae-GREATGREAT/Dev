@@ -23,7 +23,7 @@ console.log(ip);
         if (!sessionData) {
             req.app.locals.user = null;
             return res.redirect('/');
-        }console.log(sessionData);
+        }
         req.app.locals.user = JSON.parse(sessionData);
         next();
     }

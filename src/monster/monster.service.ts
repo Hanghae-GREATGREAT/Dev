@@ -1,3 +1,4 @@
+import { where } from 'sequelize';
 import { Monsters } from '../db/models';
 import { MonsterInputForm } from '../interfaces/interface';
 
@@ -85,7 +86,15 @@ class MonsterService {
         return await Monsters.update({ hp }, { where: { monsterId } });
     }
 
-    isRere() {
+    async changeMonsterStatus(monsterId: number, hp: number) {
+        return await Monsters.update({ hp: hp }, { where: { monsterId } });
+    }
+
+    async findMonsterById(monsterId: number) {
+        return await Monsters.findByPk(monsterId);
+    }
+    
+     isRere() {
         // 랜덤값 생성(1~100)
         const ranNum: number = Math.floor(Math.random() * 99 + 1);
 

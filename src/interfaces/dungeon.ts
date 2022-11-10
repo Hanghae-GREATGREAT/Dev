@@ -2,4 +2,12 @@ interface InputForm {
     input: number;
 }
 
-export { InputForm };
+interface dungeonInfoForm {
+    dungeonNo: number;
+    name: string;
+    recommendLevel: string;
+    script: string;
+}
+[];
+
+export { InputForm, dungeonInfoForm };
