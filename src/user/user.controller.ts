@@ -16,7 +16,7 @@ class UserController {
             }
 
             const result = await UserService.signup({ username, password });
-            CharacterService.createNewCharacter(result.get('userId'));
+            CharacterService.createEmptyCharacter(result.get('userId'));
             
             res.status(200).end();
         } catch (error) {
