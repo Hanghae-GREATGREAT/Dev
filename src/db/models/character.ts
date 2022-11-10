@@ -31,6 +31,8 @@ class ExpMap {
     }
 }
 
+
+
 class Characters extends Model<
     InferAttributes<Characters>, InferCreationAttributes<Characters>
 > {
@@ -235,3 +237,13 @@ Characters.init({
 });
 
 export default Characters;
+
+
+
+// 로그 증가분에 따른 expReq 템플릿
+// const exp = [0, 50];
+// for (let i=2; i<101; i++) {
+//     const M = (50*log(10*i) - 50*log(10*(i-1)));
+//     const next = (exp[i-1] + exp[i-1]*(M/10))|0;
+//     exp.push(next);
+// }

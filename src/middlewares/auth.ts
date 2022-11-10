@@ -18,7 +18,7 @@ export default {
         if (!ip) {
             throw new HttpException('잘못된 접근입니다', HttpStatus.BAD_REQUEST);
         }
-
+console.log(ip);
         const sessionData = await redis.get(ip);
         if (!sessionData) {
             req.app.locals.user = null;
